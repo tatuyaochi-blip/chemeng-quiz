@@ -40,6 +40,19 @@
       "hero": "化学工学を、3択クイズで学ぶ",
       "hero_lead": "物質収支と熱力学から、流体・伝熱・蒸留、反応器の設計、プロセス制御まで。すべての問題に解説が付いています。",
       "tools_lead": "配管の圧力損失、熱交換器の対数平均温度差、反応器の体積など、化学工学でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    },
+    "en": {
+      "subject": "chemical engineering",
+      "subject_title": "Chemical Engineering",
+      "site": "Chemical Engineering Room",
+      "site_en": "Chemical Engineering Room",
+      "search_example": "Reynolds number",
+      "tools_example": "pressure drops and log mean temperature differences",
+      "full_title": "Chemical Engineering Room | Practice Questions on Mass Balances, Fluids, Heat Transfer and Reactors",
+      "scope": "mass balances and thermodynamics, fluid flow, heat and mass transfer, distillation, reaction engineering, and process control and safety",
+      "hero": "Learn chemical engineering with quick quizzes",
+      "hero_lead": "From mass balances and thermodynamics to fluid flow, heat transfer, distillation, reactor design and process control, with an explanation for every question.",
+      "tools_lead": "Free browser calculators for everyday chemical engineering: pipe pressure drop, the log mean temperature difference of heat exchangers, reactor volume and more."
     }
   },
   "icon": {
