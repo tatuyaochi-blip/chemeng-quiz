@@ -1,0 +1,50 @@
+{
+  "baseUrl": "https://tatuyaochi-blip.github.io/chemeng-quiz/",
+  "siteName": {
+    "ja": "化学工学教室",
+    "en": "Chemical Engineering Room"
+  },
+  "languages": [
+    {
+      "code": "ja",
+      "path": "",
+      "htmlLang": "ja",
+      "locale": "ja-JP",
+      "label": "日本語"
+    }
+  ],
+  "mainLang": "ja",
+  "cname": null,
+  "noindex": true,
+  "onlyReviewed": false,
+  "contactFormUrl": {
+    "ja": "https://forms.gle/VZFqdvB4m1fLpBEg7",
+    "en": "https://forms.gle/2Hmk3GZD2oU8z6b98"
+  },
+  "reportFormUrl": null,
+  "adPlaceholders": false,
+  "adsenseClient": null,
+  "adsenseSlots": null,
+  "amazonTag": null,
+  "amazonDomain": null,
+  "ga4Id": null,
+  "brand": {
+    "ja": {
+      "search_example": "レイノルズ数",
+      "tools_example": "圧力損失や対数平均温度差",
+      "subject": "化学工学",
+      "site": "化学工学教室",
+      "site_en": "Chemical Engineering Room",
+      "full_title": "化学工学教室｜物質収支・流体・伝熱・蒸留・反応工学の練習問題と解説",
+      "scope": "物質収支・熱力学から、流体・伝熱・物質移動と蒸留、反応工学、プロセス制御と安全",
+      "hero": "化学工学を、3択クイズで学ぶ",
+      "hero_lead": "物質収支と熱力学から、流体・伝熱・蒸留、反応器の設計、プロセス制御まで。すべての問題に解説が付いています。",
+      "tools_lead": "配管の圧力損失、熱交換器の対数平均温度差、反応器の体積など、化学工学でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    }
+  },
+  "icon": {
+    "c1": "#2d6a4f",
+    "c2": "#1d64c8",
+    "glyph": "column"
+  }
+}

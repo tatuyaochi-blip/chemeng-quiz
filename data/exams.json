@@ -1,0 +1,24 @@
+[
+  {
+    "id": "main",
+    "name": "化学工学",
+    "groups": [
+      {
+        "id": "basics",
+        "name": "基礎と収支"
+      },
+      {
+        "id": "transport",
+        "name": "移動現象"
+      },
+      {
+        "id": "reaction",
+        "name": "反応工学"
+      },
+      {
+        "id": "operation",
+        "name": "制御・設計・安全"
+      }
+    ]
+  }
+]
