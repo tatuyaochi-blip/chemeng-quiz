@@ -1,66 +1,77 @@
 [
  {
   "term": "物質収支",
+  "slug": "material-balance",
   "reading": "ぶっしつしゅうし",
   "desc": "「入量 − 出量 + 生成 − 消費 = 蓄積」で表す物質の保存の関係。定常では蓄積が0で、全質量と元素の量は反応があっても保存される。",
   "cat": "balances"
  },
  {
   "term": "転化率",
+  "slug": "conversion",
   "reading": "てんかりつ",
   "desc": "供給した反応物のうち反応した割合。どの成分の、どの流れ(反応器1回通過か工程全体か)を基準にするかを明示して使う。",
   "cat": "balances"
  },
  {
   "term": "選択率",
+  "slug": "selectivity",
   "reading": "せんたくりつ",
   "desc": "反応した原料のうち目的物に変わった割合。収率は転化率と選択率の積になる。目的物と副生物の比で定義する流儀もある。",
   "cat": "balances"
  },
  {
   "term": "リサイクル",
+  "slug": "recycle",
   "reading": "りさいくる",
   "desc": "反応器出口の未反応原料を分離して入口に戻す操作。1回通過の転化率が低くても、工程全体の原料利用率を高められる。",
   "cat": "balances"
  },
  {
   "term": "パージ",
+  "slug": "purge",
   "reading": "ぱーじ",
   "desc": "リサイクル流の一部を連続的に系外へ抜き出す操作。不活性成分の蓄積を防ぐが、抜きすぎると原料の損失が増える。",
   "cat": "balances"
  },
  {
   "term": "過剰空気率",
+  "slug": "percent-excess-air",
   "reading": "かじょうくうきりつ",
   "desc": "燃焼で、理論空気量に対して余分に供給した空気の割合。多すぎると排ガス損失が増え、少なすぎると不完全燃焼を招く。",
   "cat": "balances"
  },
  {
   "term": "断熱火炎温度",
+  "slug": "adiabatic-flame-temperature",
   "reading": "だんねつかえんおんど",
   "desc": "燃焼熱がすべて燃焼ガスの加熱に使われたと仮定したときの到達温度。理論空気付近で最も高く、過剰空気や希釈で下がる。",
   "cat": "balances"
  },
  {
   "term": "圧縮係数",
+  "slug": "compressibility-factor",
   "reading": "あっしゅくけいすう",
   "desc": "Z = PV/(nRT) で表す実在気体の理想気体からのずれ。理想気体では1、分子間引力が効くと1より小さくなる。",
   "cat": "thermo"
  },
  {
   "term": "ファンデルワールスの状態方程式",
+  "slug": "van-der-waals-equation-of-state",
   "reading": "ふぁんでるわーるすのじょうたいほうていしき",
   "desc": "(P + a/Vm²)(Vm − b) = RT。a は分子間引力、b は分子自身の体積の補正で、気液の相変化を定性的に表せる。",
   "cat": "thermo"
  },
  {
   "term": "ラウールの法則",
+  "slug": "raoults-law",
   "reading": "らうーるのほうそく",
   "desc": "理想溶液で、各成分の分圧が液相のモル分率と純成分の蒸気圧の積に等しいという法則。気液平衡計算の基本になる。",
   "cat": "thermo"
  },
  {
   "term": "相対揮発度",
+  "slug": "relative-volatility",
   "reading": "そうたいきはつど",
   "desc": "2成分の揮発しやすさの比 α = (y₁/x₁)/(y₂/x₂)。理想溶液では純成分の蒸気圧の比に等しく、1から離れるほど蒸留しやすい。",
   "cat": "thermo",
@@ -95,30 +106,35 @@
  },
  {
   "term": "アントワン式",
+  "slug": "antoine-equation",
   "reading": "あんとわんしき",
   "desc": "液体の蒸気圧と温度の関係を log P = A − B/(t + C) で表す実験式。定数は圧力・温度の単位や対数の種類とセットで使う。",
   "cat": "thermo"
  },
  {
   "term": "ヘンリーの法則",
+  "slug": "henrys-law",
   "reading": "へんりーのほうそく",
   "desc": "希薄な溶質の気相分圧が液中濃度に比例するという法則(p = Hx)。ガス吸収や溶存酸素の計算に使い、H は温度で変わる。",
   "cat": "thermo"
  },
  {
   "term": "共沸混合物",
+  "slug": "azeotrope",
   "reading": "きょうふつこんごうぶつ",
   "desc": "気相と液相の組成が等しくなる組成の混合物。相対揮発度が1になり、普通の蒸留ではその組成を越えて分離できない。",
   "cat": "thermo"
  },
  {
   "term": "平衡定数",
+  "slug": "equilibrium-constant",
   "reading": "へいこうていすう",
   "desc": "平衡状態での生成物と反応物の活量の比。ΔG° = −RT lnK で標準ギブズエネルギー変化と結ばれ、温度だけで決まる。",
   "cat": "thermo"
  },
  {
   "term": "レイノルズ数",
+  "slug": "reynolds-number",
   "reading": "れいのるずすう",
   "desc": "慣性力と粘性力の比を表す無次元数 Re = ρuD/μ。円管では約2300より小さいと層流、約4000を超えるとふつう乱流になる。",
   "cat": "fluid",
@@ -153,54 +169,63 @@
  },
  {
   "term": "ベルヌーイの定理",
+  "slug": "bernoullis-theorem",
   "reading": "べるぬーいのていり",
   "desc": "粘性のない定常流で、流線に沿って圧力・運動エネルギー・位置エネルギーの和が一定という関係。流量計測や流出速度の計算に使う。",
   "cat": "fluid"
  },
  {
   "term": "ハーゲン・ポアズイユの式",
+  "slug": "hagen-poiseuille-equation",
   "reading": "はーげん・ぽあずいゆのしき",
   "desc": "円管内の層流の圧力損失を ΔP = 32μLu/D² で表す式。圧力損失は流速と粘度に比例し、流量一定なら内径の4乗に反比例する。",
   "cat": "fluid"
  },
  {
   "term": "管摩擦係数",
+  "slug": "friction-factor",
   "reading": "かんまさつけいすう",
   "desc": "ダルシー・ワイスバッハの式 hL = f(L/D)(u²/2g) の f。層流では 64/Re、乱流ではレイノルズ数と相対粗さで決まる。",
   "cat": "fluid"
  },
  {
   "term": "揚程",
+  "slug": "pump-head",
   "reading": "ようてい",
   "desc": "ポンプが液に与えるエネルギーを液柱の高さ(m)で表したもの。昇圧量は密度 × 重力加速度 × 揚程で、液の比重に比例する。",
   "cat": "fluid"
  },
  {
   "term": "NPSH",
+  "slug": "npsh",
   "reading": "えぬぴーえすえいち",
   "desc": "有効吸込みヘッド。ポンプ吸込み口の全圧が液の蒸気圧をどれだけ上回るかを液柱高さで表す。必要値を下回るとキャビテーションが起こる。",
   "cat": "fluid"
  },
  {
   "term": "キャビテーション",
+  "slug": "cavitation",
   "reading": "きゃびてーしょん",
   "desc": "液体の圧力が蒸気圧以下に下がって気泡ができ、それがつぶれる現象。ポンプの騒音・振動・羽根車の壊食や性能低下を招く。",
   "cat": "fluid"
  },
  {
   "term": "フーリエの法則",
+  "slug": "fouriers-law",
   "reading": "ふーりえのほうそく",
   "desc": "熱伝導による熱流束が温度勾配に比例するという法則 q = −k dT/dx。比例係数 k が熱伝導率で、単位は W/(m·K)。",
   "cat": "heat"
  },
  {
   "term": "熱抵抗",
+  "slug": "thermal-resistance",
   "reading": "ねつていこう",
   "desc": "温度差を熱流量で割った値。平板の伝導では L/(kA)、対流では 1/(hA) で、直列の層は抵抗を足し合わせて扱える。",
   "cat": "heat"
  },
  {
   "term": "総括伝熱係数",
+  "slug": "overall-heat-transfer-coefficient",
   "reading": "そうかつでんねつけいすう",
   "desc": "隔壁を挟んだ2流体間の伝熱の通りやすさを表す Q = UAΔT の U。各部の熱抵抗の和の逆数で、単位は W/(m²·K)。",
   "cat": "heat",
@@ -235,24 +260,28 @@
  },
  {
   "term": "ヌッセルト数",
+  "slug": "nusselt-number",
   "reading": "ぬっせるとすう",
   "desc": "Nu = hL/k。対流による伝熱が、同じ層の熱伝導だけの場合の何倍かを表す無次元数で、Re と Pr の相関式で求める。",
   "cat": "heat"
  },
  {
   "term": "プラントル数",
+  "slug": "prandtl-number",
   "reading": "ぷらんとるすう",
   "desc": "Pr = cpμ/k。運動量の拡散と熱の拡散の比を表す流体の物性値で、空気は約0.7、常温の水は約7。",
   "cat": "heat"
  },
  {
   "term": "ステファン・ボルツマンの法則",
+  "slug": "stefan-boltzmann-law",
   "reading": "すてふぁん・ぼるつまんのほうそく",
   "desc": "黒体が放射するエネルギーが絶対温度の4乗に比例するという法則 E = σT⁴。σ = 5.67×10⁻⁸ W/(m²·K⁴)。",
   "cat": "heat"
  },
  {
   "term": "対数平均温度差",
+  "slug": "log-mean-temperature-difference",
   "reading": "たいすうへいきんおんどさ",
   "desc": "熱交換器の両端の温度差 ΔT₁、ΔT₂ から (ΔT₁ − ΔT₂)/ln(ΔT₁/ΔT₂) で求める平均の温度差。Q = UAΔTlm に使う。",
   "cat": "heat",
@@ -287,18 +316,21 @@
  },
  {
   "term": "フィックの法則",
+  "slug": "ficks-law",
   "reading": "ふぃっくのほうそく",
   "desc": "分子拡散による物質の流束が濃度勾配に比例するという法則 J = −D dC/dx。比例係数 D が拡散係数。",
   "cat": "mass-separation"
  },
  {
   "term": "操作線",
+  "slug": "operating-line",
   "reading": "そうさせん",
   "desc": "吸収塔や蒸留塔の各断面での気相と液相の組成の関係を、物質収支から表した線。平衡線との間隔が分離の推進力になる。",
   "cat": "mass-separation"
  },
  {
   "term": "マッケーブ・シール法",
+  "slug": "mccabe-thiele-method",
   "reading": "まっけーぶ・しーるほう",
   "desc": "x-y線図上で平衡曲線と操作線の間に階段を描き、2成分蒸留の理論段数を求める図解法。定モル流れを仮定する。",
   "cat": "mass-separation",
@@ -333,6 +365,7 @@
  },
  {
   "term": "還流比",
+  "slug": "reflux-ratio",
   "reading": "かんりゅうひ",
   "desc": "蒸留塔の塔頂で凝縮した液のうち、塔に戻す量と製品として取り出す量の比 R = L/D。段数と熱量の兼ね合いで決める。",
   "cat": "mass-separation",
@@ -367,48 +400,56 @@
  },
  {
   "term": "フェンスケの式",
+  "slug": "fenske-equation",
   "reading": "ふぇんすけのしき",
   "desc": "全還流での最小理論段数を、製品組成と相対揮発度から Nmin = ln[(xD/(1 − xD))·((1 − xW)/xW)]/ln α で求める式。",
   "cat": "mass-separation"
  },
  {
   "term": "分配係数",
+  "slug": "distribution-coefficient",
   "reading": "ぶんぱいけいすう",
   "desc": "互いに溶け合わない2液相の間で、溶質が平衡になったときの濃度の比。液液抽出で、大きいほど少ない溶媒で抽出できる。",
   "cat": "mass-separation"
  },
  {
   "term": "逆浸透",
+  "slug": "reverse-osmosis",
   "reading": "ぎゃくしんとう",
   "desc": "浸透圧を超える圧力をかけ、半透膜を通して溶液から水だけを押し出す膜分離。海水淡水化や超純水製造でイオンを除く。",
   "cat": "mass-separation"
  },
  {
   "term": "アレニウス式",
+  "slug": "arrhenius-equation",
   "reading": "あれにうすしき",
   "desc": "速度定数の温度依存性を k = A·exp(−Ea/RT) で表す式。ln k を 1/T に対してプロットした傾きから活性化エネルギーが求まる。",
   "cat": "reactor"
  },
  {
   "term": "活性化エネルギー",
+  "slug": "activation-energy",
   "reading": "かっせいかえねるぎー",
   "desc": "反応が進むために越える必要のあるエネルギーの障壁。大きいほど速度が温度に敏感で、触媒はこれを下げて反応を速める。",
   "cat": "reactor"
  },
  {
   "term": "半減期",
+  "slug": "half-life",
   "reading": "はんげんき",
   "desc": "反応物の濃度が初めの半分になるまでの時間。1次反応では ln2/k で初濃度によらず、2次反応では初濃度に反比例する。",
   "cat": "reactor"
  },
  {
   "term": "空間時間",
+  "slug": "space-time",
   "reading": "くうかんじかん",
   "desc": "連続反応器の体積を入口の体積流量で割った値 τ = V/v₀。反応器の処理能力を表す基準で、逆数を空間速度という。",
   "cat": "reactor"
  },
  {
   "term": "CSTR",
+  "slug": "cstr",
   "reading": "しーえすてぃーあーる",
   "desc": "完全混合槽型反応器。槽内が均一に混ざり、出口と同じ濃度・温度で反応する連続反応器。液相反応や温度管理が重要な反応に使う。",
   "cat": "reactor",
@@ -443,6 +484,7 @@
  },
  {
   "term": "PFR",
+  "slug": "pfr",
   "reading": "ぴーえふあーる",
   "desc": "押し出し流れ反応器。流れの方向には混合がなく、断面内では均一とみなす管型の反応器。回分反応器と同じ形の式で設計できる。",
   "cat": "reactor",
@@ -477,18 +519,21 @@
  },
  {
   "term": "触媒",
+  "slug": "catalyst",
   "reading": "しょくばい",
   "desc": "反応の経路を変えて活性化エネルギーを下げ、反応を速める物質。正反応と逆反応をともに速めるので、平衡は変えない。",
   "cat": "reactor"
  },
  {
   "term": "伝達関数",
+  "slug": "transfer-function",
   "reading": "でんたつかんすう",
   "desc": "初期値を0として、出力と入力のラプラス変換の比で系の動特性を表したもの。一次遅れは K/(τs + 1) で表される。",
   "cat": "control"
  },
  {
   "term": "時定数",
+  "slug": "time-constant",
   "reading": "じていすう",
   "desc": "一次遅れ系がステップ入力に応答する速さの目安。時定数の時間で最終変化量の63.2%、その3倍で約95%に達する。",
   "cat": "control",
@@ -523,30 +568,35 @@
  },
  {
   "term": "むだ時間",
+  "slug": "dead-time",
   "reading": "むだじかん",
   "desc": "入力が変わってから出力に影響が現れ始めるまでの純粋な遅れ。配管による輸送などで生じ、伝達関数は exp(−Ls) で表される。",
   "cat": "control"
  },
  {
   "term": "PID制御",
+  "slug": "pid-control",
   "reading": "ぴーあいでぃーせいぎょ",
   "desc": "偏差に比例するP、偏差の積分に比例するI、偏差の変化速度に比例するDの3つの動作を組み合わせたフィードバック制御。",
   "cat": "control"
  },
  {
   "term": "カスケード制御",
+  "slug": "cascade-control",
   "reading": "かすけーどせいぎょ",
   "desc": "一次調節計の出力を二次調節計の目標値として与える多重ループの制御。二次ループ内の外乱を素早く修正できる。",
   "cat": "control"
  },
  {
   "term": "P&ID",
+  "slug": "p-and-id",
   "reading": "ぴーあんどあいでぃー",
   "desc": "配管計装図。すべての配管・弁・計器・制御ループ・インターロックを記号で示した図で、詳細設計、運転、HAZOPの基礎になる。",
   "cat": "design-safety"
  },
  {
   "term": "HAZOP",
+  "slug": "hazop",
   "reading": "はぞっぷ",
   "desc": "ハザードと操作性の検討。P&IDの各部分で、ガイドワードとパラメータを組み合わせて設計意図からのずれを洗い出す安全解析手法。",
   "cat": "design-safety",
@@ -581,24 +631,28 @@
  },
  {
   "term": "安全弁",
+  "slug": "safety-valve",
   "reading": "あんぜんべん",
   "desc": "容器や配管の圧力が設定値を超えたとき自動的に開いて流体を逃がし、圧力が下がると閉じる弁。設計圧力以下に設定する。",
   "cat": "design-safety"
  },
  {
   "term": "爆発範囲",
+  "slug": "explosive-limits",
   "reading": "ばくはつはんい",
   "desc": "可燃性ガスが空気と混ざって着火・火炎伝播できる濃度範囲。下限界と上限界で表し、メタンは約5〜15 vol%。",
   "cat": "design-safety"
  },
  {
   "term": "終末沈降速度",
+  "slug": "terminal-settling-velocity",
   "reading": "しゅうまつちんこうそくど",
   "desc": "流体中を沈む粒子で、重力から浮力を引いた力と抵抗力がつり合い、加速しなくなったときの一定の速度。粒子径と密度差で決まる。",
   "cat": "particle"
  },
  {
   "term": "ストークスの式",
+  "slug": "stokes-law",
   "reading": "すとーくすのしき",
   "desc": "粒子レイノルズ数が小さい領域の終末沈降速度 ut = gd²(ρp − ρ)/(18μ)。速度は粒子径の2乗と密度差に比例し、粘度に反比例する。",
   "cat": "particle",
@@ -633,30 +687,35 @@
  },
  {
   "term": "ルースの式",
+  "slug": "ruths-equation",
   "reading": "るーすのしき",
   "desc": "定圧ろ過のろ液量と時間の関係 (V + V₀)² = K(t + t₀)。ケーキが厚くなるほど抵抗が増え、ろ材抵抗が無視できればろ液量の2乗が時間に比例する。",
   "cat": "particle"
  },
  {
   "term": "遠心効果",
+  "slug": "centrifugal-effect",
   "reading": "えんしんこうか",
   "desc": "遠心分離機で、粒子にはたらく遠心力と重力の比 Z = rω²/g。回転半径に比例し回転数の2乗に比例する。ストークス域では沈降速度が Z 倍になる。",
   "cat": "particle"
  },
  {
   "term": "サイクロン",
+  "slug": "cyclone",
   "reading": "さいくろん",
   "desc": "ガスを円筒に接線方向から吹き込んで旋回させ、遠心力で粉じんを壁に集めて分離する装置。小径で流速が大きいほど細かい粒子まで捕れるが、圧力損失が増える。",
   "cat": "particle"
  },
  {
   "term": "ボンドの粉砕則",
+  "slug": "bonds-law",
   "reading": "ぼんどのふんさいそく",
   "desc": "粉砕エネルギーを W = 10Wi(1/√P − 1/√F) で見積もる経験則。Wi は仕事指数、F と P は原料と製品の80%通過径(μm)。",
   "cat": "particle"
  },
  {
   "term": "流動層",
+  "slug": "fluidized-bed",
   "reading": "りゅうどうそう",
   "desc": "粒子層に下から流体を流し、粒子を浮遊させて液体のように振る舞わせた層。圧力損失は粒子の見かけの重さに等しく、混合と伝熱に優れる。",
   "cat": "particle",
@@ -691,12 +750,14 @@
  },
  {
   "term": "吸着等温線",
+  "slug": "adsorption-isotherm",
   "reading": "きゅうちゃくとうおんせん",
   "desc": "一定温度で、平衡にある流体中の濃度(分圧)と吸着量の関係を表した曲線。上に凸の形ほど低濃度でも吸着しやすく、吸着剤の選定や設計の基礎になる。",
   "cat": "adsorption-drying"
  },
  {
   "term": "ラングミュアの吸着等温式",
+  "slug": "langmuir-adsorption-isotherm",
   "reading": "らんぐみゅあのきゅうちゃくとうおんしき",
   "desc": "等価な吸着点への単分子層吸着を仮定した式 q = qm·KP/(1 + KP)。低圧では吸着量が圧力に比例し、高圧では飽和吸着量 qm に近づく。",
   "cat": "adsorption-drying",
@@ -731,30 +792,35 @@
  },
  {
   "term": "フロイントリッヒの吸着等温式",
+  "slug": "freundlich-adsorption-isotherm",
   "reading": "ふろいんとりっひのきゅうちゃくとうおんしき",
   "desc": "経験式 q = kC^(1/n)。両対数プロットで直線になり、傾き 1/n が1より小さいほど低濃度でも吸着しやすい。液相の活性炭吸着によく使われる。",
   "cat": "adsorption-drying"
  },
  {
   "term": "破過曲線",
+  "slug": "breakthrough-curve",
   "reading": "はかきょくせん",
   "desc": "固定層吸着で出口濃度の時間変化を表した曲線。物質移動帯が出口に達すると濃度が上がり始め、許容値に達した時点を破過点という。",
   "cat": "adsorption-drying"
  },
  {
   "term": "絶対湿度",
+  "slug": "absolute-humidity",
   "reading": "ぜったいしつど",
   "desc": "乾き空気1 kgあたりに含まれる水蒸気の質量。H = 0.622pw/(P − pw) で、凝縮しない限り加熱・冷却で変わらないので、乾燥の収支計算に使う。",
   "cat": "adsorption-drying"
  },
  {
   "term": "湿球温度",
+  "slug": "wet-bulb-temperature",
   "reading": "しっきゅうおんど",
   "desc": "濡れた感温部で、空気からの伝熱と水の蒸発潜熱がつり合ったときの温度。未飽和の空気では乾球温度より低く、恒率乾燥期間の材料表面温度になる。",
   "cat": "adsorption-drying"
  },
  {
   "term": "恒率乾燥期間",
+  "slug": "constant-rate-drying-period",
   "reading": "こうりつかんそうきかん",
   "desc": "材料表面が水で濡れており、乾燥速度が一定の期間。表面温度は湿球温度に保たれ、速度は熱風からの伝熱で決まる。限界含水率で減率期間に移る。",
   "cat": "adsorption-drying",
@@ -789,6 +855,7 @@
  },
  {
   "term": "過飽和",
+  "slug": "supersaturation",
   "reading": "かほうわ",
   "desc": "溶液の濃度が、その温度の溶解度を超えている状態。晶析の駆動力で、溶解度をわずかに超えた準安定域では核発生が起こりにくく、結晶の成長が主に進む。",
   "cat": "adsorption-drying"
