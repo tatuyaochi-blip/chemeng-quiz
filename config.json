@@ -2,7 +2,8 @@
   "baseUrl": "https://tatuyaochi-blip.github.io/chemeng-quiz/",
   "siteName": {
     "ja": "化学工学教室",
-    "en": "Chemical Engineering Room"
+    "en": "Chemical Engineering Room",
+    "zh-hant": "化學工程教室"
   },
   "languages": [
     {
@@ -60,6 +61,19 @@
       "hero": "Learn chemical engineering with quick quizzes",
       "hero_lead": "From mass balances and thermodynamics to fluid flow, heat transfer, distillation, reactor design and process control, with an explanation for every question.",
       "tools_lead": "Free browser calculators for everyday chemical engineering: pipe pressure drop, the log mean temperature difference of heat exchangers, reactor volume and more."
+    },
+    "zh-hant": {
+      "subject": "化學工程",
+      "subject_title": "化學工程",
+      "site": "化學工程教室",
+      "site_en": "Chemical Engineering Room",
+      "search_example": "雷諾數",
+      "tools_example": "壓力損失與對數平均溫差",
+      "full_title": "化學工程教室｜質量均衡、流體、熱傳、蒸餾與反應工程的練習題與解析",
+      "scope": "質量均衡與熱力學、流體力學、熱傳與質傳、蒸餾、反應工程，以及程序控制與安全",
+      "hero": "用三選一測驗學化學工程",
+      "hero_lead": "從質量均衡與熱力學，到流體、熱傳、蒸餾、反應器設計與程序控制，每一題都附有解說。",
+      "tools_lead": "免費的瀏覽器計算工具，可確認管路的壓力損失、熱交換器的對數平均溫差、反應器體積等化學工程常用的計算。"
     }
   },
   "icon": {
