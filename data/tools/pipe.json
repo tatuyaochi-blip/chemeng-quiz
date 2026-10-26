@@ -136,6 +136,70 @@
           "a": "圧力損失が入口の圧力に比べて小さい(おおむね10 %以下)なら、平均の密度を使って同じ式で計算できます。損失が大きいときは、圧縮性を考えた計算が必要です。"
         }
       ]
+    },
+    "en": {
+      "nav": "Pipe pressure drop",
+      "card": "Calculate Reynolds number, friction factor and pressure drop from flow rate and pipe diameter",
+      "title": "Pipe Pressure Drop Calculator: Reynolds Number, Friction Factor and the Darcy–Weisbach Equation",
+      "description": "From the flow rate of a liquid or gas in a circular pipe, the pipe's inside diameter and length, the fluid density and viscosity, and the wall roughness, calculate the velocity, Reynolds number, friction factor (64/Re for laminar flow, the Swamee–Jain equation for turbulent flow), pressure drop, head loss and the power needed.",
+      "h1": "Pipe Pressure Drop Calculator",
+      "lead": "Calculate the frictional pressure drop in a straight circular pipe with the Darcy–Weisbach equation. The defaults are water at about 20 ℃ (density 998 kg/m³, viscosity 1.0 mPa·s) flowing at 10 m³/h through a steel pipe with a 50 mm inside diameter and 100 m length (roughness 0.045 mm).",
+      "in_heading": "Inputs",
+      "q": "Volumetric flow rate Q (m³/h)",
+      "d": "Pipe inside diameter D (mm)",
+      "l": "Pipe length L (m)",
+      "rho": "Density ρ (kg/m³)",
+      "mu": "Viscosity μ (mPa·s)",
+      "eps": "Wall roughness ε (mm)",
+      "out_heading": "Results",
+      "u": "Mean velocity u",
+      "re": "Reynolds number Re",
+      "regime": "Flow regime",
+      "f": "Friction factor f (Darcy)",
+      "loss_heading": "Losses",
+      "dp": "Pressure drop ΔP",
+      "hl": "Head loss hL",
+      "power": "Power to overcome the loss ΔP·Q",
+      "note": "Only the friction loss in straight pipe is calculated. Minor losses in bends, valves and fittings, and changes in elevation, are not included. The turbulent friction factor uses the Swamee–Jain equation, a close approximation of the Colebrook equation (error about 1 % for Re of roughly 5000 to 10⁸). In the transition region, Re 2300–4000, the flow is unstable and the result is only a guide. The power does not include pump efficiency.",
+      "practice": "Practice fluid flow questions",
+      "related": "Related terms",
+      "js": {
+        "laminar": "Laminar (Re < 2300)",
+        "transition": "Transition (2300 ≤ Re < 4000)",
+        "turbulent": "Turbulent (Re ≥ 4000)"
+      },
+      "sections": [
+        {
+          "h": "Reynolds number and flow regime",
+          "p": "The Reynolds number Re = ρuD/μ is the ratio of inertial forces, which tend to disturb the flow, to viscous forces, which damp the disturbances. In a circular pipe, the flow is roughly laminar, moving in smooth layers, below Re = 2300, and turbulent, with mixing eddies, above 4000. With the defaults, the velocity is u = (10/3600)/(π × 0.05²/4) ≈ 1.41 m/s and Re ≈ 70,600, so the flow is turbulent. Water flow in plant piping is turbulent in almost every case."
+        },
+        {
+          "h": "The Darcy–Weisbach equation",
+          "p": "The frictional pressure drop in a straight circular pipe is ΔP = f·(L/D)·(ρu²/2). Here f is the Darcy friction factor; in laminar flow theory gives f = 64/Re, and in turbulent flow it depends on the Reynolds number and the relative roughness ε/D of the wall (the Moody chart). With the defaults, f ≈ 0.0228 and ΔP ≈ 45.6 kPa. Note that the Fanning friction factor is one quarter of the Darcy factor, so always check which definition an equation or chart uses."
+        },
+        {
+          "h": "Effect of pipe diameter",
+          "p": "At the same flow rate, the velocity is inversely proportional to the square of the diameter, and the turbulent pressure drop is roughly inversely proportional to the fifth power of the diameter. Reducing the inside diameter from 50 mm to 40 mm increases the pressure drop about threefold. Piping is often designed to keep water velocities at roughly 1–3 m/s; a larger pipe lowers pumping costs but raises piping costs, and the economic pipe diameter is chosen by balancing the two."
+        },
+        {
+          "h": "Head loss and pump power",
+          "p": "The head loss, the pressure drop expressed as a height of liquid column, is hL = ΔP/(ρg), about 4.66 m with the defaults. The pump supplies, as its head, the sum of this loss, the elevation difference and the outlet pressure. The fluid power needed to overcome the loss is ΔP·Q, about 127 W with the defaults. The actual shaft power of the pump is this value divided by the pump efficiency (usually 50–80 %)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the difference between the Darcy and Fanning friction factors?",
+          "a": "The Darcy friction factor is four times the Fanning factor. In laminar flow, the Darcy factor is 64/Re and the Fanning factor is 16/Re. Chemical engineering textbooks often use the Fanning factor, while mechanical engineering and hydraulics often use the Darcy factor, so take care."
+        },
+        {
+          "q": "How rough are pipe walls?",
+          "a": "Typical values are about 0.0015 mm for drawn tubing (copper or plastic), about 0.045 mm for commercial steel pipe, about 0.26 mm for cast iron pipe and about 0.3–3 mm for concrete pipe. Old pipes become rougher through corrosion and scale."
+        },
+        {
+          "q": "Can I use it for gases?",
+          "a": "If the pressure drop is small compared with the inlet pressure (roughly 10 % or less), the same equation can be used with the average density. When the drop is larger, a calculation that accounts for compressibility is needed."
+        }
+      ]
     }
   }
 }

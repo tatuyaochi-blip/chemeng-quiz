@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "Chemical engineering",
+    "groups": { "basics": "Fundamentals and balances", "transport": "Transport phenomena", "reaction": "Reaction engineering", "operation": "Control, design and safety" }
+  }
+}

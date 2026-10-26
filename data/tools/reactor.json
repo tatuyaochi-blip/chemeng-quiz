@@ -136,6 +136,65 @@
           "a": "密度が一定の回分反応器では、反応時間 t = −ln(1 − X)/k で、PFRの空間時間と同じ式になります。ただし実際の回分操作では、仕込み・昇温・抜き出しの時間も加わります。"
         }
       ]
+    },
+    "en": {
+      "nav": "Reactor volume (CSTR and PFR)",
+      "card": "Compare CSTR and PFR space times and volumes for a first-order reaction at a given conversion",
+      "title": "Reactor Volume Calculator: CSTR and PFR Space Time for a First-Order Reaction, with the Arrhenius Equation",
+      "description": "From the rate constant of a first-order reaction, the target conversion and the feed flow rate, calculate and compare the space time and required volume of a continuous stirred-tank reactor (CSTR) and a plug flow reactor (PFR). The rate constant at a different temperature is corrected with the Arrhenius equation.",
+      "h1": "Reactor Volume Calculator (CSTR and PFR)",
+      "lead": "For a liquid-phase first-order reaction A → products, compare the size of CSTR and PFR needed to reach a target conversion. The defaults are a reaction with a rate constant of 0.1 /min at 50 ℃ and an activation energy of 50 kJ/mol, taken to 90 % conversion at a feed rate of 2 L/min.",
+      "in_heading": "Inputs",
+      "k": "Rate constant k at the reference temperature (1/min)",
+      "tref": "Reference temperature (℃)",
+      "ea": "Activation energy Ea (kJ/mol)",
+      "t": "Operating temperature (℃)",
+      "x": "Target conversion X (%)",
+      "v0": "Feed volumetric flow rate v0 (L/min)",
+      "out_heading": "Results",
+      "kt": "Rate constant at the operating temperature",
+      "cstr_heading": "Continuous stirred-tank reactor (CSTR)",
+      "tau_c": "Space time τ = X/(k(1 − X))",
+      "v_c": "Required volume",
+      "pfr_heading": "Plug flow reactor (PFR) and batch reactor",
+      "tau_p": "Space time τ = −ln(1 − X)/k",
+      "v_p": "Required volume",
+      "ratio": "Volume ratio CSTR/PFR",
+      "note": "The calculation assumes a first-order reaction in the liquid phase at constant density (constant volumetric flow rate). The PFR space time equals the reaction time a batch reactor needs for the same conversion. The equations change for gas-phase reactions in which the number of moles changes, and for second-order reactions. Gas constant R = 8.314 J/(mol·K).",
+      "practice": "Practice reaction engineering questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Design equations for the CSTR and PFR",
+          "p": "A continuous stirred-tank reactor (CSTR) is well mixed, so the concentration inside the reactor equals the outlet concentration. A mass balance therefore gives τ = V/v0 = X/(k(1 − X)). In a plug flow reactor (PFR), the fluid reacts as it moves through in plug flow, so integrating the balance over a differential slice gives τ = −ln(1 − X)/k. With the defaults, k = 0.1 /min and X = 90 %, the CSTR space time is 90 min and the PFR's is about 23.0 min; at v0 = 2 L/min the volumes are 180 L and about 46.1 L."
+        },
+        {
+          "h": "Why is the CSTR larger?",
+          "p": "For a reaction of positive order, the higher the reactant concentration, the faster the reaction. In a CSTR the whole reactor is diluted to the low outlet concentration, so it operates at the condition where the reaction is slowest and needs a larger volume for the same conversion. The gap widens with conversion: about 3.9 times at the default 90 %, and about 21.5 times at 99 %. Connecting several CSTRs in series brings the system closer to a PFR as the number of stages increases."
+        },
+        {
+          "h": "Temperature and the rate constant (Arrhenius equation)",
+          "p": "The rate constant increases with temperature as k = A·exp(−Ea/RT). If the value at a reference temperature is known, the value at another temperature is k = k_ref·exp(−(Ea/R)(1/T − 1/T_ref)). With the default Ea = 50 kJ/mol, raising the temperature from 50 ℃ to 60 ℃ increases the rate constant about 1.75 times and reduces the required volume to about 0.57 times. Higher temperatures, however, also increase side reactions and safety risks, so for exothermic reactions the heat removal capacity must be considered as well."
+        },
+        {
+          "h": "Reasons to choose a CSTR",
+          "p": "In terms of volume the PFR has the advantage, but the CSTR has its own benefits. Because it is well mixed, its temperature is easy to keep uniform, which makes temperature control of strongly exothermic reactions easier; it readily keeps solid catalysts or gas bubbles in suspension; and by holding the reactant concentration low it can suppress higher-order side reactions. In real plants, the reactor type is chosen by comparing reaction rate, heat release, selectivity and ease of operation."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Are space time and residence time the same?",
+          "a": "The space time τ = V/v0 is based on the inlet volumetric flow rate. If the density does not change, as in the liquid phase, it equals the mean residence time, but for gas-phase reactions in which the number of moles or the temperature changes, the two differ."
+        },
+        {
+          "q": "What happens for a second-order reaction?",
+          "a": "For −rA = k·CA², the CSTR gives τ = X/(k·CA0(1 − X)²) and the PFR gives τ = X/(k·CA0(1 − X)), so both depend on the inlet concentration CA0. At high conversion, the gap between the CSTR and PFR is even larger than for a first-order reaction."
+        },
+        {
+          "q": "What is the reaction time in a batch reactor?",
+          "a": "In a constant-density batch reactor, the reaction time is t = −ln(1 − X)/k, the same equation as the PFR space time. In real batch operation, however, the time for charging, heating up and discharging is added."
+        }
+      ]
     }
   }
 }

@@ -139,6 +139,68 @@
           "a": "多管式熱交換器のように流れが純粋な向流でない場合に、向流のLMTDにかける1以下の係数です。Fが0.75〜0.8を下回るような条件は効率が悪いので、シェルのパス数を増やすなどして設計を見直します。"
         }
       ]
+    },
+    "en": {
+      "nav": "Log mean temperature difference (LMTD)",
+      "card": "Calculate the LMTD and required heat transfer area from heat exchanger inlet and outlet temperatures",
+      "title": "LMTD Calculator: Heat Exchanger Area for Counterflow and Parallel Flow",
+      "description": "From the hot-side and cold-side inlet and outlet temperatures of a heat exchanger, calculate the log mean temperature difference (LMTD) for countercurrent or cocurrent flow, then find the required heat transfer area A = Q/(U·LMTD) from the overall heat transfer coefficient U and the heat duty Q.",
+      "h1": "Log Mean Temperature Difference (LMTD) Calculator",
+      "lead": "For a double-pipe or similar heat exchanger, find the mean temperature difference from the temperature differences at the two ends and estimate the heat transfer area you need. The defaults are a countercurrent exchanger that cools a hot fluid from 150 ℃ to 90 ℃ and heats a cold fluid from 30 ℃ to 60 ℃ (U = 500 W/(m²·K), heat duty 200 kW).",
+      "in_heading": "Inputs",
+      "flow": "Flow arrangement",
+      "flow_counter": "Countercurrent (counterflow)",
+      "flow_parallel": "Cocurrent (parallel flow)",
+      "hin": "Hot-side inlet temperature (℃)",
+      "hout": "Hot-side outlet temperature (℃)",
+      "cin": "Cold-side inlet temperature (℃)",
+      "cout": "Cold-side outlet temperature (℃)",
+      "u": "Overall heat transfer coefficient U (W/(m²·K))",
+      "q": "Heat duty Q (kW)",
+      "out_heading": "Results",
+      "d1": "Terminal temperature difference ΔT1",
+      "d2": "Terminal temperature difference ΔT2",
+      "lmtd": "Log mean temperature difference LMTD",
+      "area_heading": "Required heat transfer area",
+      "area": "Heat transfer area A = Q/(U·LMTD)",
+      "note": "These are the equations for a double-pipe exchanger in pure countercurrent or cocurrent flow. For shell-and-tube and other exchangers with more complex flow patterns, multiply the LMTD by a correction factor F (1 or less). A difference of temperatures has the same value in ℃ or K.",
+      "practice": "Practice heat transfer questions",
+      "related": "Related terms",
+      "js": {
+        "cross": "A terminal temperature difference is zero or negative (temperature cross)"
+      },
+      "sections": [
+        {
+          "h": "What is the log mean temperature difference?",
+          "p": "Inside a heat exchanger, the temperature difference between the hot and cold streams changes from place to place as heat is exchanged. Because the local rate of heat transfer is proportional to the temperature difference, the duty of the whole exchanger can be written as Q = U·A·ΔTlm, and this mean temperature difference is the log mean temperature difference, LMTD = (ΔT1 − ΔT2)/ln(ΔT1/ΔT2). ΔT1 and ΔT2 are the temperature differences at the two ends of the exchanger. For the default countercurrent case, ΔT1 = 150 − 60 = 90 K and ΔT2 = 90 − 30 = 60 K, giving LMTD ≈ 74.0 K."
+        },
+        {
+          "h": "Countercurrent and cocurrent flow",
+          "p": "In countercurrent flow the hot and cold fluids move in opposite directions; in cocurrent (parallel) flow they move in the same direction. For the same inlet and outlet temperatures, countercurrent flow gives the larger LMTD. Switching the defaults to cocurrent flow gives ΔT1 = 150 − 30 = 120 K and ΔT2 = 90 − 60 = 30 K, so LMTD ≈ 64.9 K, and the area needed for the same duty rises by about 14 %. In addition, in cocurrent flow the cold-fluid outlet temperature cannot exceed the hot-fluid outlet temperature, whereas in countercurrent flow it can."
+        },
+        {
+          "h": "Estimating the heat transfer area",
+          "p": "Once the heat duty Q and the overall heat transfer coefficient U are known, the required area is A = Q/(U·LMTD). With the defaults, 200,000/(500 × 74.0) ≈ 5.41 m². U is set by the film coefficients on both sides, conduction through the tube wall and the fouling factors; it is a few hundred to a few thousand W/(m²·K) for water-to-water exchange and drops to a few tens of W/(m²·K) when a gas is involved. In design, the area is given some margin to allow for the loss of performance from fouling."
+        },
+        {
+          "h": "Cautions when using the LMTD",
+          "p": "When the two terminal temperature differences are equal, ln(1) = 0 and the formula cannot be used, but in that case the LMTD is simply that temperature difference. Conditions in which a terminal temperature difference is zero or negative (a temperature cross) cannot be achieved with that flow arrangement. If the heat capacity changes strongly with temperature, or if there is a phase change, divide the exchanger into sections and calculate each one. When the outlet temperatures are unknown and you want the performance of a given area, the effectiveness–number-of-transfer-units method is more convenient."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I use the arithmetic mean temperature difference instead?",
+          "a": "If the ratio of the two terminal temperature differences is within 2, the arithmetic mean and the LMTD differ by about 4 % or less. When the ratio is large, the arithmetic mean overestimates the temperature difference and the heat transfer area comes out too small."
+        },
+        {
+          "q": "What about condensation or boiling?",
+          "a": "When one side condenses or boils at a constant temperature, the temperature on that side does not change, so the LMTD is the same for countercurrent and cocurrent flow. For example, heating water from 20 ℃ to 80 ℃ with steam at 120 ℃ gives ΔT1 = 100 K and ΔT2 = 40 K, so LMTD ≈ 65.5 K."
+        },
+        {
+          "q": "What is the correction factor F?",
+          "a": "It is a factor of 1 or less applied to the countercurrent LMTD when the flow is not purely countercurrent, as in a shell-and-tube exchanger. Conditions where F falls below about 0.75–0.8 are inefficient, so the design is reconsidered, for example by increasing the number of shell passes."
+        }
+      ]
     }
   }
 }
