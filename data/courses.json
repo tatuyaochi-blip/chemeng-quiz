@@ -1,4 +1,4 @@
 [
   {"id": "basics", "name": {"ja": "化学工学の基礎"}, "desc": {"ja": "物質収支・エネルギー収支から、熱力学、流体の流れ、伝熱、物質移動と分離まで、化学工学の土台となる考え方と計算を順に学びます。"}, "steps": ["balances", "thermo", "fluid", "particle", "heat", "mass-separation", "extraction-absorption", "adsorption-drying"]},
-  {"id": "plant", "name": {"ja": "反応器とプラント運転"}, "desc": {"ja": "収支計算を出発点に、反応速度と反応器の設計、プロセス制御、プロセス設計と安全まで、プラントを設計し安全に動かすための知識を学びます。"}, "steps": ["balances", "reactor", "control", "design-safety", "economics"]}
+  {"id": "plant", "name": {"ja": "反応器とプラント運転"}, "desc": {"ja": "収支計算を出発点に、反応速度と反応器の設計、プロセス制御、プロセス設計と安全まで、プラントを設計し安全に動かすための知識を学びます。"}, "steps": ["balances", "reactor", "bioprocess", "control", "design-safety", "environmental", "economics"]}
 ]
