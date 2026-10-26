@@ -1,0 +1,283 @@
+{
+  "id": "distillation",
+  "order": 4,
+  "slug": "distillation-minimum-stages-reflux-calculator",
+  "cats": [
+    "mass-separation",
+    "thermo"
+  ],
+  "cat": "mass-separation",
+  "terms": [
+    "相対揮発度",
+    "還流比",
+    "フェンスケの式",
+    "マッケーブ・シール法",
+    "操作線"
+  ],
+  "questions": [
+    "mass-separation-009",
+    "mass-separation-010",
+    "mass-separation-011"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "ds-form",
+    "fields": [
+      {
+        "name": "alpha",
+        "value": 2.5,
+        "attrs": "min=\"1.0001\" step=\"any\""
+      },
+      {
+        "name": "xd",
+        "value": 0.95,
+        "attrs": "min=\"0\" max=\"1\" step=\"any\""
+      },
+      {
+        "name": "xw",
+        "value": 0.05,
+        "attrs": "min=\"0\" max=\"1\" step=\"any\""
+      },
+      {
+        "name": "zf",
+        "value": 0.5,
+        "attrs": "min=\"0\" max=\"1\" step=\"any\""
+      },
+      {
+        "name": "ratio",
+        "value": 1.3,
+        "attrs": "min=\"1.0001\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "df",
+          "nmin"
+        ]
+      },
+      {
+        "heading": "rmin_heading",
+        "stats": [
+          "ystar",
+          "theta",
+          "rmin"
+        ]
+      },
+      {
+        "heading": "op_heading",
+        "stats": [
+          "r",
+          "vd",
+          "gx",
+          "n"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "蒸留の最小段数と最小還流比",
+      "card": "相対揮発度と製品組成から、フェンスケの式の最小理論段数と最小還流比を計算",
+      "title": "蒸留の最小理論段数・最小還流比の計算ツール(フェンスケの式・Underwoodの式・Gilliland相関)",
+      "description": "相対揮発度が一定の2成分系の連続蒸留について、留出液・缶出液・原料の組成から、全還流での最小理論段数(フェンスケの式)と、飽和液供給での最小還流比(Underwoodの式)を計算し、還流比を最小還流比の何倍にするかからGilliland相関で理論段数の目安を求めます。",
+      "h1": "蒸留の最小段数と最小還流比の計算ツール",
+      "lead": "2成分系の連続蒸留塔の設計の最初の見積もりとして、段数の下限(全還流)と還流比の下限(最小還流比)を求めます。既定値は、相対揮発度 α = 2.5 の系を、軽沸成分のモル分率0.50の飽和液で供給し、留出液0.95・缶出液0.05に分ける例です。",
+      "in_heading": "入力",
+      "alpha": "相対揮発度 α(一定)",
+      "xd": "留出液の軽沸成分モル分率 xD",
+      "xw": "缶出液の軽沸成分モル分率 xW",
+      "zf": "原料の軽沸成分モル分率 zF(飽和液)",
+      "ratio": "還流比 ÷ 最小還流比 R/Rmin",
+      "out_heading": "結果",
+      "df": "留出液の割合 D/F",
+      "nmin": "最小理論段数 Nmin(全還流、リボイラーを含む)",
+      "rmin_heading": "最小還流比(飽和液供給)",
+      "ystar": "q線と平衡線の交点の蒸気組成 y*",
+      "theta": "Underwoodの式の根 θ",
+      "rmin": "最小還流比 Rmin",
+      "op_heading": "運転する還流比と段数の目安",
+      "r": "還流比 R",
+      "vd": "塔頂の蒸気量 V/D = R + 1",
+      "gx": "Gillilandの横軸 X = (R − Rmin)/(R + 1)",
+      "n": "理論段数 N の目安(Gilliland相関、リボイラーを含む)",
+      "note": "相対揮発度が一定で、定モル流れ(両成分のモル蒸発潜熱がほぼ等しい)を仮定した2成分系の式です。原料は沸点の飽和液(q = 1)とします。理論段数Nの目安はGilliland相関の近似式(Molokanovの式)によるもので、ずれが大きいこともあるため、最終的な段数はマッケーブ・シール法やプロセスシミュレーターで確かめます。実際の段数は、段効率で割ってさらに多くなります。",
+      "practice": "物質移動と分離の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "order": "0 < xW < zF < xD < 1 となるように入力してください",
+        "alpha": "相対揮発度は1より大きくしてください",
+        "ratio": "R/Rmin は1より大きくしてください",
+        "neg": "最小還流比が0以下(q線と平衡線の交点が xD 以上)なので、この分離は還流比をいくら小さくしても挟み込み点が生じません"
+      },
+      "sections": [
+        {
+          "h": "全還流と最小理論段数(フェンスケの式)",
+          "p": "留出液をまったく取り出さずに凝縮液をすべて塔に戻す全還流では、操作線が対角線 y = x と一致し、平衡線との間隔が最も広くなるので、必要な理論段数が最小になります。相対揮発度 α が一定なら、この最小理論段数はフェンスケの式 Nmin = ln[(xD/(1 − xD))·((1 − xW)/xW)]/ln α で求まり、リボイラーを1段として含みます。既定値では (0.95/0.05) × (0.95/0.05) = 361 なので、Nmin = ln 361 ÷ ln 2.5 ≈ 6.43段です。対数の底は分子と分母でそろえれば自然対数でも常用対数でも同じ値になります。"
+        },
+        {
+          "h": "最小還流比(q線と平衡線の交点)",
+          "p": "還流比を下げていくと濃縮部の操作線が平衡線に近づき、原料段の付近で平衡線に接したところで推進力がなくなり、段数が無限に必要になります。このときの還流比が最小還流比です。飽和液供給ではq線が x = zF の垂直線なので、平衡線 y = αx/{1 + (α − 1)x} との交点の蒸気組成は y* = αzF/{1 + (α − 1)zF} で、最小還流比は Rmin = (xD − y*)/(y* − zF) です。既定値では y* = 1.25 ÷ 1.75 ≈ 0.714、Rmin = (0.95 − 0.714) ÷ (0.714 − 0.50) ≈ 1.10 になります。"
+        },
+        {
+          "h": "Underwoodの式",
+          "p": "多成分系にも使えるUnderwoodの式では、まず Σ αᵢzᵢ/(αᵢ − θ) = 1 − q を満たす根 θ を、軽沸成分と重沸成分の相対揮発度の間(2成分系では 1 < θ < α)で求め、次に Rmin + 1 = Σ αᵢxD,ᵢ/(αᵢ − θ) から最小還流比を求めます。飽和液供給(q = 1)の2成分系では右辺が0になり、既定値では θ ≈ 1.429、Rmin + 1 = 2.5 × 0.95 ÷ 1.071 + 0.05 ÷ (1 − 1.429) ≈ 2.217 − 0.117 = 2.10 です。相対揮発度が一定の2成分系では、q線と平衡線の交点から求めた値と一致します。"
+        },
+        {
+          "h": "還流比の選び方と段数の目安",
+          "p": "還流比を大きくすると段数は減りますが、塔頂の蒸気量 V = (R + 1)D が増え、リボイラーの加熱量とコンデンサーの除熱量が増えます。設備費と運転費の兼ね合いから、還流比は最小還流比のおよそ1.2〜1.5倍に選ぶのが目安です。そのときの理論段数は、横軸 X = (R − Rmin)/(R + 1)、縦軸 Y = (N − Nmin)/(N + 1) のGilliland相関から見積もれます。既定値の R = 1.3 × 1.10 = 1.43 では X ≈ 0.136、Y ≈ 0.52 で、N ≈ 14段(リボイラーを含む)となり、最小理論段数の2倍あまりです。Gilliland相関は多くの塔のデータをまとめた経験式で、条件によっては段数を大きくずれて見積もることがあるので、概略の検討に使います。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "フェンスケの式の段数にはリボイラーが含まれますか?",
+          "a": "含まれます。リボイラーは缶出液と平衡の蒸気を出すので1理論段として働き、全縮器(コンデンサー)は段に数えません。塔内の段数として答えるときは、Nminから1を引きます。部分凝縮器を使う場合は、それも1段として数えます。"
+        },
+        {
+          "q": "相対揮発度が塔の上と下で違うときはどうしますか?",
+          "a": "塔頂と塔底の相対揮発度の幾何平均 √(α頂·α底) を使うのが一般的です。違いが大きい系や、共沸混合物をつくる系では、相対揮発度一定の式は使えないので、気液平衡のデータを使ってマッケーブ・シール法や段ごとの計算で段数を求めます。"
+        },
+        {
+          "q": "原料が飽和液でないときは?",
+          "a": "原料の状態は q(原料1 molあたり、回収部を下りる液が増える量 mol)で表し、q線の傾きが q/(q − 1) になります。冷えた液なら q > 1、気液混合なら 0 < q < 1、飽和蒸気なら q = 0 です。q が小さいほどq線と平衡線の交点が左下へ移り、最小還流比は大きくなります。このツールは q = 1 の場合だけを計算します。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Distillation minimum stages and reflux",
+      "card": "Calculate the Fenske minimum number of theoretical stages and the minimum reflux ratio from the relative volatility and product compositions",
+      "title": "Distillation Minimum Stages and Minimum Reflux Calculator (Fenske, Underwood and Gilliland)",
+      "description": "For continuous distillation of a binary system with constant relative volatility, calculate the minimum number of theoretical stages at total reflux (Fenske equation) and the minimum reflux ratio for a saturated-liquid feed (Underwood equation) from the distillate, bottoms and feed compositions, and estimate the number of theoretical stages with the Gilliland correlation from the chosen multiple of the minimum reflux ratio.",
+      "h1": "Distillation Minimum Stages and Minimum Reflux Calculator",
+      "lead": "As a first estimate in designing a continuous binary distillation column, find the lower limit on the number of stages (total reflux) and the lower limit on the reflux ratio (minimum reflux). The defaults separate a system with relative volatility α = 2.5, fed as a saturated liquid with a light-component mole fraction of 0.50, into a distillate of 0.95 and bottoms of 0.05.",
+      "in_heading": "Inputs",
+      "alpha": "Relative volatility α (constant)",
+      "xd": "Distillate light-component mole fraction xD",
+      "xw": "Bottoms light-component mole fraction xW",
+      "zf": "Feed light-component mole fraction zF (saturated liquid)",
+      "ratio": "Reflux ratio ÷ minimum reflux ratio R/Rmin",
+      "out_heading": "Results",
+      "df": "Distillate fraction D/F",
+      "nmin": "Minimum theoretical stages Nmin (total reflux, including the reboiler)",
+      "rmin_heading": "Minimum reflux ratio (saturated-liquid feed)",
+      "ystar": "Vapor composition y* where the q-line meets the equilibrium curve",
+      "theta": "Root θ of the Underwood equation",
+      "rmin": "Minimum reflux ratio Rmin",
+      "op_heading": "Operating reflux ratio and estimated stages",
+      "r": "Reflux ratio R",
+      "vd": "Overhead vapor V/D = R + 1",
+      "gx": "Gilliland abscissa X = (R − Rmin)/(R + 1)",
+      "n": "Estimated theoretical stages N (Gilliland correlation, including the reboiler)",
+      "note": "These equations are for a binary system with constant relative volatility and constant molal overflow (the molar latent heats of the two components are about equal). The feed is taken as a saturated liquid at its boiling point (q = 1). The estimate of N uses an approximation of the Gilliland correlation (the Molokanov equation) and can be well off, so confirm the final number of stages with the McCabe–Thiele method or a process simulator. The actual number of trays is larger still, after dividing by the stage efficiency.",
+      "practice": "Practice mass transfer and separation questions",
+      "related": "Related terms",
+      "js": {
+        "order": "Enter values so that 0 < xW < zF < xD < 1",
+        "alpha": "The relative volatility must be greater than 1",
+        "ratio": "R/Rmin must be greater than 1",
+        "neg": "The minimum reflux ratio is zero or negative (the q-line meets the equilibrium curve at or above xD), so no pinch occurs for this separation however small the reflux ratio is"
+      },
+      "sections": [
+        {
+          "h": "Total reflux and the minimum number of stages (Fenske equation)",
+          "p": "At total reflux, when no distillate is withdrawn and all the condensate is returned to the column, the operating lines coincide with the diagonal y = x and their gap from the equilibrium curve is at its widest, so the number of theoretical stages needed is at its minimum. If the relative volatility α is constant, this minimum is given by the Fenske equation, Nmin = ln[(xD/(1 − xD))·((1 − xW)/xW)]/ln α, which counts the reboiler as one stage. With the defaults, (0.95/0.05) × (0.95/0.05) = 361, so Nmin = ln 361 ÷ ln 2.5 ≈ 6.43 stages. As long as the numerator and denominator use the same base, natural and common logarithms give the same value."
+        },
+        {
+          "h": "Minimum reflux ratio (where the q-line meets the equilibrium curve)",
+          "p": "As the reflux ratio is lowered, the rectifying operating line moves toward the equilibrium curve; when it touches the curve near the feed stage, the driving force vanishes and an infinite number of stages would be needed. The reflux ratio at that point is the minimum reflux ratio. For a saturated-liquid feed the q-line is vertical at x = zF, so it meets the equilibrium curve y = αx/{1 + (α − 1)x} at the vapor composition y* = αzF/{1 + (α − 1)zF}, and the minimum reflux ratio is Rmin = (xD − y*)/(y* − zF). With the defaults, y* = 1.25 ÷ 1.75 ≈ 0.714 and Rmin = (0.95 − 0.714) ÷ (0.714 − 0.50) ≈ 1.10."
+        },
+        {
+          "h": "The Underwood equation",
+          "p": "The Underwood equation, which also works for multicomponent systems, first finds the root θ of Σ αᵢzᵢ/(αᵢ − θ) = 1 − q lying between the relative volatilities of the light and heavy key components (1 < θ < α for a binary system), and then finds the minimum reflux ratio from Rmin + 1 = Σ αᵢxD,ᵢ/(αᵢ − θ). For a binary system with a saturated-liquid feed (q = 1) the right-hand side of the first equation is zero; with the defaults θ ≈ 1.429 and Rmin + 1 = 2.5 × 0.95 ÷ 1.071 + 0.05 ÷ (1 − 1.429) ≈ 2.217 − 0.117 = 2.10. For a binary system with constant relative volatility, this agrees with the value found from the intersection of the q-line and the equilibrium curve."
+        },
+        {
+          "h": "Choosing the reflux ratio and estimating the stages",
+          "p": "A larger reflux ratio means fewer stages, but the overhead vapor V = (R + 1)D increases, and so do the reboiler heat duty and the condenser cooling duty. Balancing equipment and operating costs, the reflux ratio is usually chosen at about 1.2 to 1.5 times the minimum. The number of theoretical stages at that reflux can be estimated from the Gilliland correlation, which plots Y = (N − Nmin)/(N + 1) against X = (R − Rmin)/(R + 1). With the defaults, R = 1.3 × 1.10 = 1.43 gives X ≈ 0.136 and Y ≈ 0.52, so N ≈ 14 stages (including the reboiler), a little more than twice the minimum. The Gilliland correlation is an empirical fit to data from many columns and can misestimate the number of stages considerably under some conditions, so use it for preliminary studies."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does the Fenske number of stages include the reboiler?",
+          "a": "Yes. The reboiler produces vapor in equilibrium with the bottoms, so it acts as one theoretical stage, while a total condenser is not counted as a stage. To give the number of stages inside the column, subtract 1 from Nmin. A partial condenser is also counted as one stage."
+        },
+        {
+          "q": "What if the relative volatility differs between the top and bottom of the column?",
+          "a": "The usual practice is to use the geometric mean of the top and bottom values, √(αtop·αbottom). For systems where the difference is large, or that form an azeotrope, the constant-volatility equations do not apply, and the number of stages is found from vapor–liquid equilibrium data with the McCabe–Thiele method or stage-by-stage calculations."
+        },
+        {
+          "q": "What if the feed is not a saturated liquid?",
+          "a": "The feed condition is expressed by q (the moles by which the liquid flowing down the stripping section increases per mole of feed), and the q-line has a slope of q/(q − 1). A subcooled liquid has q > 1, a vapor–liquid mixture 0 < q < 1 and a saturated vapor q = 0. The smaller q is, the further down and to the left the q-line meets the equilibrium curve, and the larger the minimum reflux ratio becomes. This tool only calculates the case q = 1."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "蒸餾的最少板數與最小回流比",
+      "card": "由相對揮發度與產品組成，計算Fenske方程式的最少理論板數與最小回流比",
+      "title": "蒸餾的最少理論板數、最小回流比計算工具（Fenske方程式、Underwood方程式、Gilliland關聯式）",
+      "description": "對相對揮發度固定之2成分系的連續蒸餾，由餾出液、塔底液與進料的組成，計算全回流下的最少理論板數（Fenske方程式）與飽和液體進料下的最小回流比（Underwood方程式），並由回流比取最小回流比的幾倍，以Gilliland關聯式求出理論板數的參考值。",
+      "h1": "蒸餾的最少板數與最小回流比計算工具",
+      "lead": "作為2成分系連續蒸餾塔設計的初步估算，求出板數的下限（全回流）與回流比的下限（最小回流比）。預設值是將相對揮發度 α = 2.5 的系統，以輕成分莫耳分率0.50的飽和液體進料，分成餾出液0.95、塔底液0.05的例子。",
+      "in_heading": "輸入",
+      "alpha": "相對揮發度 α（固定）",
+      "xd": "餾出液的輕成分莫耳分率 xD",
+      "xw": "塔底液的輕成分莫耳分率 xW",
+      "zf": "進料的輕成分莫耳分率 zF（飽和液體）",
+      "ratio": "回流比 ÷ 最小回流比 R/Rmin",
+      "out_heading": "結果",
+      "df": "餾出液的比例 D/F",
+      "nmin": "最少理論板數 Nmin（全回流，含再沸器）",
+      "rmin_heading": "最小回流比（飽和液體進料）",
+      "ystar": "q線與平衡線交點的蒸氣組成 y*",
+      "theta": "Underwood方程式的根 θ",
+      "rmin": "最小回流比 Rmin",
+      "op_heading": "操作回流比與板數的參考值",
+      "r": "回流比 R",
+      "vd": "塔頂的蒸氣量 V/D = R + 1",
+      "gx": "Gilliland的橫軸 X = (R − Rmin)/(R + 1)",
+      "n": "理論板數 N 的參考值（Gilliland關聯式，含再沸器）",
+      "note": "這是假設相對揮發度固定、恆莫耳溢流（兩成分的莫耳蒸發潛熱大致相等）的2成分系公式。進料為沸點的飽和液體（q = 1）。理論板數N的參考值是以Gilliland關聯式的近似式（Molokanov式）求得，偏差有時很大，最終的板數要以McCabe–Thiele法或程序模擬器確認。實際的板數還要除以板效率，會更多。",
+      "practice": "練習質傳與分離的題目",
+      "related": "相關名詞",
+      "js": {
+        "order": "請輸入使 0 < xW < zF < xD < 1 的值",
+        "alpha": "相對揮發度請大於1",
+        "ratio": "R/Rmin 請大於1",
+        "neg": "最小回流比為0以下（q線與平衡線的交點在 xD 以上），因此這個分離不論回流比多小都不會出現夾點"
+      },
+      "sections": [
+        {
+          "h": "全回流與最少理論板數（Fenske方程式）",
+          "p": "完全不取出餾出液、把冷凝液全部送回塔內的全回流下，操作線與對角線 y = x 一致，與平衡線的間距最大，因此所需的理論板數最少。相對揮發度 α 固定時，這個最少理論板數可由Fenske方程式 Nmin = ln[(xD/(1 − xD))·((1 − xW)/xW)]/ln α 求得，其中把再沸器算作1板。在預設值下 (0.95/0.05) × (0.95/0.05) = 361，因此 Nmin = ln 361 ÷ ln 2.5 ≈ 6.43板。只要分子與分母的對數底一致，用自然對數或常用對數都得到相同的值。"
+        },
+        {
+          "h": "最小回流比（q線與平衡線的交點）",
+          "p": "降低回流比時，精餾段的操作線向平衡線靠近，在進料板附近碰到平衡線時驅動力消失，需要無限多的板數。此時的回流比就是最小回流比。飽和液體進料時q線是 x = zF 的垂直線，與平衡線 y = αx/{1 + (α − 1)x} 交點的蒸氣組成為 y* = αzF/{1 + (α − 1)zF}，最小回流比為 Rmin = (xD − y*)/(y* − zF)。在預設值下 y* = 1.25 ÷ 1.75 ≈ 0.714，Rmin = (0.95 − 0.714) ÷ (0.714 − 0.50) ≈ 1.10。"
+        },
+        {
+          "h": "Underwood方程式",
+          "p": "也能用於多成分系的Underwood方程式，先在輕關鍵成分與重關鍵成分的相對揮發度之間（2成分系為 1 < θ < α）求出滿足 Σ αᵢzᵢ/(αᵢ − θ) = 1 − q 的根 θ，再由 Rmin + 1 = Σ αᵢxD,ᵢ/(αᵢ − θ) 求出最小回流比。飽和液體進料（q = 1）的2成分系中，第一式的右邊為0；在預設值下 θ ≈ 1.429，Rmin + 1 = 2.5 × 0.95 ÷ 1.071 + 0.05 ÷ (1 − 1.429) ≈ 2.217 − 0.117 = 2.10。在相對揮發度固定的2成分系中，這與由q線和平衡線的交點求得的值一致。"
+        },
+        {
+          "h": "回流比的選擇與板數的參考值",
+          "p": "加大回流比時板數減少，但塔頂的蒸氣量 V = (R + 1)D 增加，再沸器的加熱量與冷凝器的除熱量也增加。在設備費與操作費之間權衡，回流比的參考值是選為最小回流比的約1.2〜1.5倍。此時的理論板數，可由以 X = (R − Rmin)/(R + 1) 為橫軸、Y = (N − Nmin)/(N + 1) 為縱軸的Gilliland關聯式估算。在預設值的 R = 1.3 × 1.10 = 1.43 下，X ≈ 0.136、Y ≈ 0.52，N ≈ 14板（含再沸器），約為最少理論板數的2倍多。Gilliland關聯式是整理許多塔的數據而得的經驗式，依條件不同可能使板數的估算偏差很大，宜用於初步的檢討。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Fenske方程式的板數包含再沸器嗎？",
+          "a": "包含。再沸器送出與塔底液平衡的蒸氣，因此作為1理論板作用，全凝器（冷凝器）則不算作板。要回答塔內的板數時，由Nmin減去1。使用分凝器時，也把它算作1板。"
+        },
+        {
+          "q": "塔頂與塔底的相對揮發度不同時怎麼辦？",
+          "a": "一般使用塔頂與塔底相對揮發度的幾何平均 √(α頂·α底)。差異很大的系統或會形成共沸混合物的系統，不能使用相對揮發度固定的公式，要用汽液平衡數據以McCabe–Thiele法或逐板計算求出板數。"
+        },
+        {
+          "q": "進料不是飽和液體時呢？",
+          "a": "進料的狀態以 q（每1 mol進料使流下汽提段的液體增加的量，mol）表示，q線的斜率為 q/(q − 1)。過冷液體 q > 1，汽液混合 0 < q < 1，飽和蒸氣 q = 0。q 越小，q線與平衡線的交點越往左下移動，最小回流比越大。本工具只計算 q = 1 的情況。"
+        }
+      ]
+    }
+  }
+}

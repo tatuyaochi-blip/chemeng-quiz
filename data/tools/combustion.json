@@ -1,0 +1,304 @@
+{
+  "id": "combustion",
+  "order": 5,
+  "slug": "combustion-air-flue-gas-calculator",
+  "cats": [
+    "combustion",
+    "balances"
+  ],
+  "cat": "combustion",
+  "terms": [
+    "理論空気量",
+    "空気比",
+    "過剰空気率",
+    "排ガス損失",
+    "酸露点",
+    "物質収支"
+  ],
+  "questions": [
+    "combustion-003",
+    "combustion-006",
+    "combustion-007"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "cb-form",
+    "fields": [
+      {
+        "name": "c",
+        "value": 85,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "h",
+        "value": 12,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "s",
+        "value": 2,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "o",
+        "value": 1,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "m",
+        "value": 1.3,
+        "attrs": "min=\"1\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "heading": "air_heading",
+        "stats": [
+          "o0",
+          "a0",
+          "a"
+        ]
+      },
+      {
+        "heading": "wet_heading",
+        "stats": [
+          "g0",
+          "g",
+          "h2o"
+        ]
+      },
+      {
+        "heading": "dry_heading",
+        "stats": [
+          "gd",
+          "co2",
+          "o2",
+          "so2",
+          "n2",
+          "co2max",
+          "mest"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "燃焼計算(理論空気量・排ガス量)",
+      "card": "燃料の元素組成と空気比から、理論空気量・排ガス量・乾き排ガスのO₂濃度を計算",
+      "title": "燃焼計算ツール(理論空気量・実際空気量・排ガス量と組成・乾き排ガスのO₂濃度)",
+      "description": "液体・固体燃料の炭素・水素・硫黄・酸素の質量組成と空気比から、燃料1 kgあたりの理論酸素量・理論空気量・実際空気量、湿り排ガス量と乾き排ガス量、乾き排ガス中のCO₂・O₂・SO₂・N₂の濃度を、完全燃焼の物質収支で計算します。",
+      "h1": "燃焼計算ツール(理論空気量と排ガス量)",
+      "lead": "燃料の元素分析の値から、燃焼に必要な空気の量と、出てくる排ガスの量と組成を求めます。既定値は、質量で炭素85%・水素12%・硫黄2%・酸素1%の重油を、空気比1.3で燃やす例です。",
+      "in_heading": "入力(燃料の質量組成)",
+      "c": "炭素 C (質量%)",
+      "h": "水素 H (質量%)",
+      "s": "硫黄 S (質量%)",
+      "o": "酸素 O (質量%)",
+      "m": "空気比 m",
+      "out_heading": "結果(燃料1 kgあたり、0 ℃・101.325 kPa の Nm³)",
+      "air_heading": "酸素と空気",
+      "o0": "理論酸素量 O₀",
+      "a0": "理論空気量 A₀ = O₀/0.21",
+      "a": "実際空気量 A = mA₀",
+      "wet_heading": "湿り排ガス",
+      "g0": "理論湿り排ガス量 G₀(m = 1)",
+      "g": "湿り排ガス量 G",
+      "h2o": "湿り排ガス中の H₂O",
+      "dry_heading": "乾き排ガス",
+      "gd": "乾き排ガス量 G′",
+      "co2": "CO₂",
+      "o2": "O₂",
+      "so2": "SO₂",
+      "n2": "N₂",
+      "co2max": "最大CO₂濃度(m = 1 のとき)",
+      "mest": "O₂濃度からの空気比の近似 21/(21 − O₂)",
+      "note": "完全燃焼(COやすすを出さない)とし、硫黄はすべてSO₂になるものとします。気体は理想気体で、1 kmol = 22.4 Nm³、空気は O₂ 21 vol%・N₂ 79 vol% とします。燃料中の酸素は燃焼に使われるものとして理論酸素量から差し引きます。入力の合計が100%に満たない残り(灰分など)は排ガスに加えず、燃料中の窒素や水分を含む場合は、その分(窒素 0.8 Nm³/kg・水分 1.24 Nm³/kg を質量分率に掛けた量)だけ排ガスが増えます。",
+      "practice": "燃焼と燃料の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "sum": "組成の合計が100%を超えています",
+        "m": "空気比は1以上にしてください(このツールは完全燃焼だけを計算します)",
+        "o0": "理論酸素量が0以下です(酸素の割合が大きすぎます)",
+        "neg": "組成は0以上の値を入力してください"
+      },
+      "sections": [
+        {
+          "h": "理論酸素量と理論空気量",
+          "p": "燃料1 kgに含まれる炭素・水素・硫黄・酸素の質量分率を c・h・s・o とすると、C + O₂ → CO₂、H₂ + 1/2 O₂ → H₂O、S + O₂ → SO₂ から、完全燃焼に必要な理論酸素量は O₀ = 22.4 × (c/12 + h/4 + s/32 − o/32) [Nm³/kg] です。燃料中の酸素はすでに燃料にあって燃焼に使えるので差し引きます。空気中のO₂は21 vol%なので、理論空気量は A₀ = O₀/0.21 になります。炭素85%・水素15%の燃料なら O₀ ≈ 2.43 Nm³/kg、A₀ ≈ 11.6 Nm³/kg で、既定値の重油では O₀ ≈ 2.27 Nm³/kg、A₀ ≈ 10.8 Nm³/kg です。水素は質量あたりの必要酸素量が炭素の約3倍あります。"
+        },
+        {
+          "h": "空気比と実際空気量",
+          "p": "実際の装置では燃料と空気が完全には混ざらないので、理論空気量より多めの空気を送ります。実際空気量 A と理論空気量の比が空気比 m = A/A₀ で、過剰空気率は m − 1 です。空気比の目安は、気体燃料でおよそ1.05〜1.2、液体燃料ではそれより大きく、固体燃料ではさらに大きい値ですが、装置や燃焼方式で変わります。空気比を必要以上に大きくすると排ガス量が増え、煙突から持ち去られる熱(排ガス損失)が増えます。既定値の空気比1.3では、実際空気量は 1.3 × 10.8 ≈ 14.0 Nm³/kg です。"
+        },
+        {
+          "h": "排ガス量と組成",
+          "p": "湿り排ガスは、燃焼でできたCO₂・H₂O・SO₂と、空気から持ち込まれたN₂(0.79A)、使われずに残った過剰空気中のO₂(0.21(m − 1)A₀)からなります。まとめると、湿り排ガス量は G = mA₀ + 22.4 × (h/4 + o/32) = mA₀ + 5.6h + 0.7o、水蒸気を除いた乾き排ガス量は G′ = mA₀ − 5.6h + 0.7o です。既定値では G ≈ 14.7 Nm³/kg、G′ ≈ 13.4 Nm³/kg です。CO₂やH₂Oは燃料で決まるので空気比を上げても増えず、空気比で増えるのは過剰空気の分 (m − 1)A₀ だけです。"
+        },
+        {
+          "h": "乾き排ガスのO₂濃度と空気比",
+          "p": "排ガス分析は水分を除いた乾き基準で行うことが多く、乾き排ガス中のO₂濃度は 21(m − 1)A₀/G′ [%] です。乾き排ガス量を空気量 mA₀ で近似すると m ≈ 21/(21 − O₂) となり、O₂濃度の測定値から空気比を推定する燃焼管理によく使われます。既定値では O₂ ≈ 5.09%、この近似で m ≈ 1.32 となり、実際の1.30よりわずかに大きく出ます。水素の多い燃料ほど乾き排ガス量が空気量より小さくなり、ずれが大きくなります。SO₂濃度は既定値で約1050 ppm(乾き基準)で、硫黄分の多い燃料では一部がSO₃になり、酸露点が上がって低温部の腐食の原因になります。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "気体燃料(プロパンなど)にも使えますか?",
+          "a": "質量組成に直せば使えます。プロパン C₃H₈ は質量で炭素 36/44 ≈ 81.8%、水素 8/44 ≈ 18.2% で、結果は燃料1 kgあたりです。燃料1 Nm³あたりにするには、1 Nm³の質量 44/22.4 ≈ 1.96 kg を掛けます。理論空気量は約23.8 Nm³/Nm³で、空気比1.2なら湿り排ガス量は約30.6 Nm³/Nm³ になります。"
+        },
+        {
+          "q": "湿り基準と乾き基準はどう使い分けますか?",
+          "a": "湿り基準は水蒸気を含めた濃度で、排ガスの流量や熱の計算に使います。乾き基準は水蒸気を除いた濃度で、排ガスの分析計の多くは試料を冷やして水分を除いてから測るので、乾き基準の値が出ます。排出基準はさらに、一定のO₂濃度に換算した値で決められることが多いので、比べるときは基準をそろえます。"
+        },
+        {
+          "q": "空気比を1より小さくするとどうなりますか?",
+          "a": "酸素が足りず、燃料の一部がCOや水素、すすのまま残り、発熱量を十分に取り出せません。排ガスの組成は反応の平衡や混合の状態で決まるので、このツールの完全燃焼の式では計算できません。空気比がちょうど1でも、実際には混合のむらのため未燃分が残るのが普通です。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Combustion calculation (theoretical air and flue gas)",
+      "card": "Calculate the theoretical air, flue gas volume and dry flue gas O₂ concentration from the fuel element composition and air ratio",
+      "title": "Combustion Calculator: Theoretical Air, Actual Air, Flue Gas Volume and Composition, and Dry O₂",
+      "description": "From the mass fractions of carbon, hydrogen, sulfur and oxygen in a liquid or solid fuel and the air ratio, calculate the theoretical oxygen, theoretical air and actual air per kg of fuel, the wet and dry flue gas volumes, and the CO₂, O₂, SO₂ and N₂ concentrations in the dry flue gas, using the material balance for complete combustion.",
+      "h1": "Combustion Calculator (Theoretical Air and Flue Gas)",
+      "lead": "From the ultimate analysis of a fuel, find the amount of air needed for combustion and the amount and composition of the flue gas produced. The defaults burn a heavy fuel oil with 85% carbon, 12% hydrogen, 2% sulfur and 1% oxygen by mass at an air ratio of 1.3.",
+      "in_heading": "Inputs (fuel composition by mass)",
+      "c": "Carbon C (mass%)",
+      "h": "Hydrogen H (mass%)",
+      "s": "Sulfur S (mass%)",
+      "o": "Oxygen O (mass%)",
+      "m": "Air ratio m",
+      "out_heading": "Results (per kg of fuel, Nm³ at 0 ℃ and 101.325 kPa)",
+      "air_heading": "Oxygen and air",
+      "o0": "Theoretical oxygen O₀",
+      "a0": "Theoretical air A₀ = O₀/0.21",
+      "a": "Actual air A = mA₀",
+      "wet_heading": "Wet flue gas",
+      "g0": "Theoretical wet flue gas G₀ (m = 1)",
+      "g": "Wet flue gas G",
+      "h2o": "H₂O in the wet flue gas",
+      "dry_heading": "Dry flue gas",
+      "gd": "Dry flue gas G′",
+      "co2": "CO₂",
+      "o2": "O₂",
+      "so2": "SO₂",
+      "n2": "N₂",
+      "co2max": "Maximum CO₂ concentration (at m = 1)",
+      "mest": "Air ratio estimated from O₂, 21/(21 − O₂)",
+      "note": "Combustion is taken as complete (no CO or soot), and all the sulfur becomes SO₂. Gases are ideal, 1 kmol = 22.4 Nm³, and air is 21 vol% O₂ and 79 vol% N₂. The oxygen in the fuel is assumed to be available for combustion and is subtracted from the theoretical oxygen. Whatever the inputs leave short of 100% (ash and so on) is not added to the flue gas; if the fuel contains nitrogen or moisture, the flue gas increases by that amount (0.8 Nm³/kg for nitrogen and 1.24 Nm³/kg for moisture, multiplied by the mass fraction).",
+      "practice": "Practice combustion and fuels questions",
+      "related": "Related terms",
+      "js": {
+        "sum": "The composition adds up to more than 100%",
+        "m": "The air ratio must be 1 or more (this tool only calculates complete combustion)",
+        "o0": "The theoretical oxygen is zero or negative (the oxygen fraction is too large)",
+        "neg": "Enter compositions of 0 or more"
+      },
+      "sections": [
+        {
+          "h": "Theoretical oxygen and theoretical air",
+          "p": "If c, h, s and o are the mass fractions of carbon, hydrogen, sulfur and oxygen in 1 kg of fuel, then from C + O₂ → CO₂, H₂ + 1/2 O₂ → H₂O and S + O₂ → SO₂ the theoretical oxygen needed for complete combustion is O₀ = 22.4 × (c/12 + h/4 + s/32 − o/32) [Nm³/kg]. The oxygen already in the fuel is available for combustion, so it is subtracted. Since air is 21 vol% O₂, the theoretical air is A₀ = O₀/0.21. A fuel of 85% carbon and 15% hydrogen gives O₀ ≈ 2.43 Nm³/kg and A₀ ≈ 11.6 Nm³/kg, and the default heavy oil gives O₀ ≈ 2.27 Nm³/kg and A₀ ≈ 10.8 Nm³/kg. Per unit mass, hydrogen needs about three times as much oxygen as carbon."
+        },
+        {
+          "h": "Air ratio and actual air",
+          "p": "In real equipment the fuel and air do not mix perfectly, so somewhat more air than the theoretical amount is supplied. The ratio of the actual air A to the theoretical air is the air ratio m = A/A₀, and the excess air fraction is m − 1. As a rough guide, the air ratio is about 1.05 to 1.2 for gaseous fuels, larger for liquid fuels and larger still for solid fuels, but it depends on the equipment and the firing method. An air ratio higher than necessary increases the flue gas volume and the heat carried up the stack (the flue gas loss). At the default air ratio of 1.3, the actual air is 1.3 × 10.8 ≈ 14.0 Nm³/kg."
+        },
+        {
+          "h": "Flue gas volume and composition",
+          "p": "The wet flue gas consists of the CO₂, H₂O and SO₂ formed by combustion, the N₂ brought in with the air (0.79A) and the O₂ left unused in the excess air (0.21(m − 1)A₀). Putting these together, the wet flue gas is G = mA₀ + 22.4 × (h/4 + o/32) = mA₀ + 5.6h + 0.7o, and the dry flue gas, with the water vapor removed, is G′ = mA₀ − 5.6h + 0.7o. With the defaults, G ≈ 14.7 Nm³/kg and G′ ≈ 13.4 Nm³/kg. The CO₂ and H₂O are fixed by the fuel and do not increase with the air ratio; only the excess air, (m − 1)A₀, grows with it."
+        },
+        {
+          "h": "Dry flue gas O₂ and the air ratio",
+          "p": "Flue gas is often analyzed on a dry basis, with the moisture removed, and the O₂ concentration in the dry flue gas is 21(m − 1)A₀/G′ [%]. Approximating the dry flue gas volume by the air volume mA₀ gives m ≈ 21/(21 − O₂), which is widely used in combustion control to estimate the air ratio from a measured O₂ concentration. With the defaults, O₂ ≈ 5.09% and this approximation gives m ≈ 1.32, slightly above the true 1.30. The more hydrogen the fuel contains, the further the dry flue gas volume falls below the air volume and the larger the error. The SO₂ concentration is about 1050 ppm (dry basis) with the defaults; with high-sulfur fuels part of it becomes SO₃, which raises the acid dew point and causes corrosion in cold parts of the equipment."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can this be used for gaseous fuels such as propane?",
+          "a": "Yes, once the composition is converted to mass fractions. Propane, C₃H₈, is 36/44 ≈ 81.8% carbon and 8/44 ≈ 18.2% hydrogen by mass, and the results are per kg of fuel. To get values per Nm³ of fuel, multiply by the mass of 1 Nm³, 44/22.4 ≈ 1.96 kg. The theoretical air is about 23.8 Nm³/Nm³, and at an air ratio of 1.2 the wet flue gas is about 30.6 Nm³/Nm³."
+        },
+        {
+          "q": "When are the wet and dry bases used?",
+          "a": "The wet basis includes water vapor and is used for flue gas flow and heat calculations. The dry basis excludes water vapor; most flue gas analyzers cool the sample and remove the moisture before measuring, so they give dry-basis values. Emission limits are often further expressed at a reference O₂ concentration, so put values on the same basis before comparing them."
+        },
+        {
+          "q": "What happens if the air ratio is below 1?",
+          "a": "There is not enough oxygen, so part of the fuel remains as CO, hydrogen or soot and the heating value is not fully released. The flue gas composition then depends on reaction equilibria and on how well the gases mix, so it cannot be calculated with this tool’s complete-combustion equations. Even at an air ratio of exactly 1, some unburned material usually remains in practice because of uneven mixing."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "燃燒計算（理論空氣量、排氣量）",
+      "card": "由燃料的元素組成與空氣比，計算理論空氣量、排氣量與乾排氣的O₂濃度",
+      "title": "燃燒計算工具（理論空氣量、實際空氣量、排氣量與組成、乾排氣的O₂濃度）",
+      "description": "由液體、固體燃料的碳、氫、硫、氧質量組成與空氣比，以完全燃燒的質量均衡計算每1 kg燃料的理論氧氣量、理論空氣量、實際空氣量，濕排氣量與乾排氣量，以及乾排氣中CO₂、O₂、SO₂、N₂的濃度。",
+      "h1": "燃燒計算工具（理論空氣量與排氣量）",
+      "lead": "由燃料元素分析的值，求出燃燒所需的空氣量，以及產生的排氣量與組成。預設值是將質量碳85%、氫12%、硫2%、氧1%的重油，以空氣比1.3燃燒的例子。",
+      "in_heading": "輸入（燃料的質量組成）",
+      "c": "碳 C（質量%）",
+      "h": "氫 H（質量%）",
+      "s": "硫 S（質量%）",
+      "o": "氧 O（質量%）",
+      "m": "空氣比 m",
+      "out_heading": "結果（每1 kg燃料，0 ℃、101.325 kPa 的 Nm³）",
+      "air_heading": "氧氣與空氣",
+      "o0": "理論氧氣量 O₀",
+      "a0": "理論空氣量 A₀ = O₀/0.21",
+      "a": "實際空氣量 A = mA₀",
+      "wet_heading": "濕排氣",
+      "g0": "理論濕排氣量 G₀（m = 1）",
+      "g": "濕排氣量 G",
+      "h2o": "濕排氣中的 H₂O",
+      "dry_heading": "乾排氣",
+      "gd": "乾排氣量 G′",
+      "co2": "CO₂",
+      "o2": "O₂",
+      "so2": "SO₂",
+      "n2": "N₂",
+      "co2max": "最大CO₂濃度（m = 1 時）",
+      "mest": "由O₂濃度近似的空氣比 21/(21 − O₂)",
+      "note": "假設完全燃燒（不產生CO與煤煙），硫全部變成SO₂。氣體視為理想氣體，1 kmol = 22.4 Nm³，空氣取 O₂ 21 vol%、N₂ 79 vol%。燃料中的氧視為可用於燃燒，由理論氧氣量中扣除。輸入合計不足100%的其餘部分（灰分等）不加入排氣；燃料含氮或水分時，排氣會增加相應的量（氮 0.8 Nm³/kg、水分 1.24 Nm³/kg 乘以質量分率）。",
+      "practice": "練習燃燒與燃料的題目",
+      "related": "相關名詞",
+      "js": {
+        "sum": "組成的合計超過100%",
+        "m": "空氣比請為1以上（本工具只計算完全燃燒）",
+        "o0": "理論氧氣量為0以下（氧的比例太大）",
+        "neg": "組成請輸入0以上的值"
+      },
+      "sections": [
+        {
+          "h": "理論氧氣量與理論空氣量",
+          "p": "設1 kg燃料中碳、氫、硫、氧的質量分率為 c、h、s、o，由 C + O₂ → CO₂、H₂ + 1/2 O₂ → H₂O、S + O₂ → SO₂，完全燃燒所需的理論氧氣量為 O₀ = 22.4 × (c/12 + h/4 + s/32 − o/32) [Nm³/kg]。燃料中的氧原本就在燃料裡、可用於燃燒，因此扣除。空氣中的O₂為21 vol%，理論空氣量為 A₀ = O₀/0.21。碳85%、氫15%的燃料 O₀ ≈ 2.43 Nm³/kg、A₀ ≈ 11.6 Nm³/kg，預設值的重油則為 O₀ ≈ 2.27 Nm³/kg、A₀ ≈ 10.8 Nm³/kg。每單位質量的氫所需氧氣量約為碳的3倍。"
+        },
+        {
+          "h": "空氣比與實際空氣量",
+          "p": "實際裝置中燃料與空氣無法完全混合，因此送入比理論空氣量多一些的空氣。實際空氣量 A 與理論空氣量之比就是空氣比 m = A/A₀，過剩空氣百分率為 m − 1。空氣比的參考值，氣體燃料約1.05〜1.2，液體燃料比它大，固體燃料更大，但會依裝置與燃燒方式而變。空氣比大於需要時，排氣量增加，由煙囪帶走的熱（排氣損失）也增加。在預設值的空氣比1.3下，實際空氣量為 1.3 × 10.8 ≈ 14.0 Nm³/kg。"
+        },
+        {
+          "h": "排氣量與組成",
+          "p": "濕排氣由燃燒生成的CO₂、H₂O、SO₂，隨空氣帶入的N₂（0.79A），以及過剩空氣中未被使用而殘留的O₂（0.21(m − 1)A₀）組成。整理後，濕排氣量為 G = mA₀ + 22.4 × (h/4 + o/32) = mA₀ + 5.6h + 0.7o，除去水蒸氣的乾排氣量為 G′ = mA₀ − 5.6h + 0.7o。在預設值下 G ≈ 14.7 Nm³/kg、G′ ≈ 13.4 Nm³/kg。CO₂與H₂O由燃料決定，提高空氣比也不會增加，隨空氣比增加的只有過剩空氣的部分 (m − 1)A₀。"
+        },
+        {
+          "h": "乾排氣的O₂濃度與空氣比",
+          "p": "排氣分析多以除去水分的乾基準進行，乾排氣中的O₂濃度為 21(m − 1)A₀/G′ [%]。以空氣量 mA₀ 近似乾排氣量，得 m ≈ 21/(21 − O₂)，常用於由O₂濃度的測定值推估空氣比的燃燒管理。在預設值下 O₂ ≈ 5.09%，以此近似得 m ≈ 1.32，比實際的1.30稍大。燃料含氫越多，乾排氣量比空氣量越小，偏差越大。預設值的SO₂濃度約1050 ppm（乾基準）；含硫多的燃料有一部分會變成SO₃，使酸露點升高，成為低溫部位腐蝕的原因。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "也能用於氣體燃料（丙烷等）嗎？",
+          "a": "換算成質量組成就能使用。丙烷 C₃H₈ 以質量計碳 36/44 ≈ 81.8%、氫 8/44 ≈ 18.2%，結果為每1 kg燃料的值。要換成每1 Nm³燃料，乘上1 Nm³的質量 44/22.4 ≈ 1.96 kg。理論空氣量約23.8 Nm³/Nm³，空氣比1.2時濕排氣量約30.6 Nm³/Nm³。"
+        },
+        {
+          "q": "濕基準與乾基準如何區分使用？",
+          "a": "濕基準是包含水蒸氣的濃度，用於排氣流量與熱量的計算。乾基準是除去水蒸氣的濃度；多數排氣分析儀會先冷卻試樣、除去水分再測定，因此得到的是乾基準的值。排放標準多半還要換算成一定O₂濃度的值來規定，比較時要統一基準。"
+        },
+        {
+          "q": "空氣比小於1時會怎樣？",
+          "a": "氧氣不足，燃料的一部分以CO、氫或煤煙的形式殘留，無法充分取出發熱量。此時排氣的組成取決於反應的平衡與混合的狀態，無法用本工具的完全燃燒公式計算。即使空氣比剛好為1，實際上因混合不均勻，通常也會殘留未燃分。"
+        }
+      ]
+    }
+  }
+}
