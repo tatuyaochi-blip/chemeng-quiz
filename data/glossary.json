@@ -123,7 +123,10 @@
   "slug": "azeotrope",
   "reading": "きょうふつこんごうぶつ",
   "desc": "気相と液相の組成が等しくなる組成の混合物。相対揮発度が1になり、普通の蒸留ではその組成を越えて分離できない。",
-  "cat": "thermo"
+  "cat": "thermo",
+  "aliases": [
+   "共沸点"
+  ]
  },
  {
   "term": "平衡定数",
@@ -172,7 +175,10 @@
   "slug": "bernoullis-theorem",
   "reading": "べるぬーいのていり",
   "desc": "粘性のない定常流で、流線に沿って圧力・運動エネルギー・位置エネルギーの和が一定という関係。流量計測や流出速度の計算に使う。",
-  "cat": "fluid"
+  "cat": "fluid",
+  "aliases": [
+   "ベルヌーイの式"
+  ]
  },
  {
   "term": "ハーゲン・ポアズイユの式",
@@ -200,7 +206,12 @@
   "slug": "npsh",
   "reading": "えぬぴーえすえいち",
   "desc": "有効吸込みヘッド。ポンプ吸込み口の全圧が液の蒸気圧をどれだけ上回るかを液柱高さで表す。必要値を下回るとキャビテーションが起こる。",
-  "cat": "fluid"
+  "cat": "fluid",
+  "aliases": [
+   "有効吸込みヘッド",
+   "NPSHa",
+   "NPSHr"
+  ]
  },
  {
   "term": "キャビテーション",
@@ -690,7 +701,11 @@
   "slug": "ruths-equation",
   "reading": "るーすのしき",
   "desc": "定圧ろ過のろ液量と時間の関係 (V + V₀)² = K(t + t₀)。ケーキが厚くなるほど抵抗が増え、ろ材抵抗が無視できればろ液量の2乗が時間に比例する。",
-  "cat": "particle"
+  "cat": "particle",
+  "aliases": [
+   "ルースの定圧ろ過式",
+   "ルースの定数"
+  ]
  },
  {
   "term": "遠心効果",
@@ -711,7 +726,11 @@
   "slug": "bonds-law",
   "reading": "ぼんどのふんさいそく",
   "desc": "粉砕エネルギーを W = 10Wi(1/√P − 1/√F) で見積もる経験則。Wi は仕事指数、F と P は原料と製品の80%通過径(μm)。",
-  "cat": "particle"
+  "cat": "particle",
+  "aliases": [
+   "ボンドの法則",
+   "ボンドの式"
+  ]
  },
  {
   "term": "流動層",
@@ -1197,7 +1216,10 @@
   "slug": "d-value",
   "reading": "でぃーち",
   "desc": "一定温度の加熱で、生菌数を1/10に減らすのに要する時間。熱死滅を1次反応とみなすと、必要な加熱時間は D 値と減らす桁数の積になる。",
-  "cat": "bioprocess"
+  "cat": "bioprocess",
+  "aliases": [
+   "D 値"
+  ]
  },
  {
   "term": "活性汚泥法",
@@ -1862,7 +1884,10 @@
   "slug": "falling-film-evaporator",
   "reading": "りゅうかまくしきじょうはつかん",
   "desc": "加熱管の内壁に沿って液を薄い膜状に流下させて蒸発させる形式。滞留時間が短く液柱の静圧の影響も小さいので、熱に弱い液に向く。",
-  "cat": "evaporation"
+  "cat": "evaporation",
+  "aliases": [
+   "流下膜式"
+  ]
  },
  {
   "term": "自由度",
@@ -1918,14 +1943,20 @@
   "slug": "sensitivity-analysis",
   "reading": "かんどかいせき",
   "desc": "前提とする物性値・価格・速度定数などを変えたとき、結果がどれだけ変わるかを調べる解析。相対感度 (Δy/y)/(Δx/x) で比べることが多い。",
-  "cat": "optimization"
+  "cat": "optimization",
+  "aliases": [
+   "感度分析"
+  ]
  },
  {
   "term": "線形計画法",
   "slug": "linear-programming",
   "reading": "せんけいけいかくほう",
   "desc": "一次式の制約のもとで一次式の目的関数を最大・最小にする方法。最適解は実行可能領域の頂点に現れ、シンプレックス法などで求める。",
-  "cat": "optimization"
+  "cat": "optimization",
+  "aliases": [
+   "線形計画問題"
+  ]
  },
  {
   "term": "双対価格",
