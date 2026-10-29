@@ -4,7 +4,7 @@
     "ja": "化学工学教室",
     "en": "Chemical Engineering Room",
     "zh-hant": "化學工程教室",
-    "es": "Sala de Ingeniería Química",
+    "es": "Aula de Ingeniería Química",
     "pt": "Sala de Engenharia Química"
   },
   "languages": [
@@ -87,15 +87,15 @@
     "es": {
       "subject": "ingeniería química",
       "subject_title": "ingeniería química",
-      "site": "Sala de Ingeniería Química",
+      "site": "Aula de Ingeniería Química",
       "site_en": "Chemical Engineering Room",
       "search_example": "número de Reynolds",
       "tools_example": "pérdidas de presión y diferencias de temperatura media logarítmica",
-      "full_title": "Sala de Ingeniería Química | Preguntas de práctica sobre balances de materia, fluidos, transferencia de calor y reactores",
-      "scope": "balances de materia y termodinámica, flujo de fluidos, transferencia de calor y de masa, destilación, ingeniería de las reacciones, y control y seguridad de procesos",
+      "full_title": "Aula de Ingeniería Química | Preguntas de práctica sobre balances de materia, fluidos, transferencia de calor y reactores",
+      "scope": "balances de materia y termodinámica, flujo de fluidos, transferencia de calor y de masa, destilación, ingeniería de las reacciones químicas, y control y seguridad de procesos",
       "hero": "Aprenda ingeniería química con cuestionarios breves",
       "hero_lead": "Desde los balances de materia y la termodinámica hasta el flujo de fluidos, la transferencia de calor, la destilación, el diseño de reactores y el control de procesos. Todas las preguntas incluyen una explicación.",
-      "tools_lead": "Calculadoras gratuitas en el navegador para la ingeniería química de todos los días: pérdida de presión en tuberías, diferencia de temperatura media logarítmica de intercambiadores de calor, volumen de reactores y más."
+      "tools_lead": "Calculadoras gratuitas en el navegador para el día a día de la ingeniería química: pérdida de presión en tuberías, diferencia de temperatura media logarítmica de intercambiadores de calor, volumen de reactores y más."
     },
     "pt": {
       "subject": "engenharia química",
@@ -105,10 +105,10 @@
       "search_example": "número de Reynolds",
       "tools_example": "perdas de carga e médias logarítmicas das diferenças de temperatura",
       "full_title": "Sala de Engenharia Química | Questões de prática sobre balanços de massa, fluidos, transferência de calor e reatores",
-      "scope": "balanços de massa e termodinâmica, escoamento de fluidos, transferência de calor e de massa, destilação, engenharia das reações e controle e segurança de processos",
+      "scope": "balanços de massa e termodinâmica, escoamento de fluidos, transferência de calor e de massa, destilação, engenharia das reações químicas e controle e segurança de processos",
       "hero": "Aprenda engenharia química com quizzes rápidos",
       "hero_lead": "Dos balanços de massa e da termodinâmica ao escoamento de fluidos, à transferência de calor, à destilação, ao projeto de reatores e ao controle de processos. Todas as questões têm explicação.",
-      "tools_lead": "Calculadoras gratuitas no navegador para o dia a dia da engenharia química: perda de carga em tubulações, MLDT de trocadores de calor, volume de reatores e mais."
+      "tools_lead": "Calculadoras gratuitas no navegador para o dia a dia da engenharia química: perda de carga em tubulações, média logarítmica das diferenças de temperatura (MLDT) em trocadores de calor, volume de reatores e mais."
     }
   },
   "icon": {
