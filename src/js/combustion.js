@@ -3,6 +3,7 @@
 // 湿り排ガス: CO₂ 22.4c/12、H₂O 22.4h/2、SO₂ 22.4s/32、N₂ 0.79A、O₂ 0.21(m − 1)A₀(合計 G = mA₀ + 5.6h + 0.7o)。
 // 乾き排ガス G′ = G − H₂O。O₂濃度からの空気比の近似 m ≈ 21/(21 − O₂)
 import { num, reader } from './eng.js';
+import { combustion, airRatioFromO2 } from './calc.js';
 const form = document.getElementById('cb-form');
 const out = k => document.querySelector(`[data-out="${k}"]`);
 const val = reader(form);
@@ -10,14 +11,6 @@ const T = JSON.parse(form.dataset.text);
 // 負の数は正しいマイナス記号で
 const fmt = (x, d = 4) => num(x, d).replace('-', '−');
 const KEYS = ['o0', 'a0', 'a', 'g0', 'g', 'h2o', 'gd', 'co2', 'o2', 'so2', 'n2', 'co2max', 'mest'];
-
-export function combustion(c, h, s, o, m) {
-  const o0 = 22.4 * (c / 12 + h / 4 + s / 32 - o / 32);
-  const a0 = o0 / 0.21, a = m * a0;
-  const co2 = 22.4 * c / 12, h2o = 22.4 * h / 2, so2 = 22.4 * s / 32, n2 = 0.79 * a, o2 = 0.21 * (m - 1) * a0;
-  const g = co2 + h2o + so2 + n2 + o2, gd = g - h2o;
-  return { o0, a0, a, co2, h2o, so2, n2, o2, g, gd, g0: co2 + h2o + so2 + 0.79 * a0, co2max: co2 / (co2 + so2 + 0.79 * a0) };
-}
 
 function update() {
   // 負の組成は既定値に置き換えずにエラーにする(空欄は0として読む)
@@ -43,7 +36,7 @@ function update() {
   out('so2').textContent = `${fmt(1e6 * r.so2 / r.gd, 3)} ppm`;
   out('n2').textContent = pc(r.n2 / r.gd);
   out('co2max').textContent = pc(r.co2max);
-  out('mest').textContent = fmt(21 / (21 - 100 * r.o2 / r.gd), 3);
+  out('mest').textContent = fmt(airRatioFromO2(100 * r.o2 / r.gd), 3);
 }
 form.addEventListener('input', update);
 form.addEventListener('submit', e => e.preventDefault());
